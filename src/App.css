@@ -13,12 +13,11 @@
   background-color: #f8d845;
   box-shadow: 0 10px 40px 0;
   border-radius: 20px;
-  position: relative;
   box-sizing: border-box;
+  position: relative;
 }
 
 .modal__conteiner-frame {
-  position: absolute;
   top: 17px;
   right: 17px;
   box-sizing: border-box;
@@ -26,20 +25,15 @@
   height: 634px;
 }
 
-.modal__sms {
-  position: absolute;
-  top: 329px;
-  right: 233px;
-}
-
-.modal__mms {
-  position: absolute;
-  top: 341px;
-  right: 198px;
-}
-
 .modal__conteiner-arrow {
-  text-align: end;
+  width: 100%;
+}
+
+.modal__arrow {
+  position: absolute;
+  top: 15px;
+  right: 19px;
+  cursor: pointer;
 }
 
 .modal__container-up {
@@ -49,11 +43,13 @@
 
 .modal__container-name {
   margin: 0 auto;
+  width: 100%;
 }
 
 .modal__avatar {
-  margin-top: 10px;
+  margin: 15px auto 0;
   border-radius: 10px;
+  display: block;
 }
 
 .modal__container-online {
@@ -70,7 +66,7 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 25px;
-  color: #ffffff;
+  color: #333333;
   margin: 0;
 }
 
@@ -80,6 +76,7 @@
   line-height: 21px;
   color: #333333;
   margin: 0;
+  padding-bottom: 15px;
 }
 
 .modal__conteiner-main {
@@ -87,24 +84,14 @@
   border-radius: 20px;
   height: 584px;
   box-sizing: border-box;
-  /* display: flex; */
-  align-items: end;
+
 }
 
 .modal__conteiner-icons {
   display: flex;
   gap: 32px;
   justify-content: center;
-  margin: 120px auto 0;
-}
-
-.modal__conteiner-chat {
-  background-color: #f2f2f2;
-  border-radius: 20px;
-  width: 472px;
-  height: 421px;
-  margin: 22px auto 0;
-  box-sizing: border-box;
+  padding: 15px 0 0;
 
 }
 
