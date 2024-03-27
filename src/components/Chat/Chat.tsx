@@ -1,6 +1,5 @@
 import './Chat.css';
 
-// import IconChat from './../../assets/IconChat.svg?react';
 import User from './../../assets/user.svg?react';
 import Avatar from './../../assets/Avatar.jpg';
 import Input from '../Input/Input';
@@ -8,32 +7,6 @@ import Input from '../Input/Input';
 export default function Chat() {
   return (
     <div className='chat'>
-     
-
-      {/* С чатами */}
-      {/* <div className='chat__container-with-chats'>
-        <p className='chat__text'>{ChatData.history}</p>
-
-        <div className='chat__container-chat'>
-          <IconChat />
-          <div className='chat__container-text'>
-            <p className='chat__name'>Винк</p>
-            <p className='chat__text'>Команда Винк: Рады был помочь!</p>
-          </div>
-          <p className='chat__text chat__text_side-right'>11:30</p>
-        </div>
-
-        <div className='chat__container-chat'>
-          <IconChat />
-          <div className='chat__container-text'>
-            <p className='chat__name'>Винк</p>
-            <p className='chat__text'>Команда Винк: Рады был помочь!</p>
-          </div>
-          <p className='chat__text chat__text_side-right'>11:30</p>
-        </div>
-      </div> */}
-
-      {/* Чат */}
       <div className='chat__container-with-chat-text'>
         <div className='chat__container-user'>
           <div className='chat__container-messedge chat__container-messedge_type_blue'>
@@ -86,7 +59,6 @@ export default function Chat() {
           <img src={Avatar} alt='фото пользователя' className='chat__avatar' />{' '}
         </div>
       </div>
-    {/* Инпут */}
       <Input />
 
     </div>

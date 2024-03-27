@@ -5,16 +5,17 @@
   padding: 15px 0 0;
 }
 
-.chat__container-whithout-text {
+.icons-container-whithout-text {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 467px;
+  height: 407px;
   background-color: #f2f2f2;
   margin: 10px 0 0 0;
+  border-radius: 20px;
 }
 
-.chat__container {
+.icons-container__container {
   width: 313px;
   height: 126px;
   display: flex;
@@ -24,13 +25,13 @@
   margin: 0 auto;
 }
 
-.chat__container-icons {
+.icons-container-icons {
   position: relative;
   width: 85px;
   height: 62px;
 }
 
-.chat__text {
+.icons-container__text {
   color: #333333;
   font-size: 16px;
   font-weight: 400;
@@ -38,14 +39,67 @@
   margin: 0;
 }
 
-.modal__sms {
+.icons-container__sms {
   position: absolute;
   top: 4px;
   left: 4px;
 }
 
-.modal__mms {
+.icons-container__mms {
   position: absolute;
   top: 16px;
   right: 4px;
+}
+
+.icons-container__with-chats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0 0;
+  width: 471px;
+}
+
+.icons-container__chat {
+  padding: 7px 19px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  gap: 25px;
+}
+
+.icons-container__text {
+  text-align: left;
+  margin-left: 19px;
+}
+
+.icons-container__history {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22.4px;
+  margin: 0;
+  text-align: center;
+}
+
+.icons-container__name {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.icons-container__text {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.icons-container__text_side-right {
+  margin-left: auto;
 }
