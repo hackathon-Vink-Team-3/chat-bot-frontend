@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import Icons from './Icons/Icons';
+import Online from './assets/Online.svg?react';
+import { IconsData, modalData } from './utils/constants';
+import Avatar from './assets/Avatar.jpg';
+import ArrowDown from './assets/ArrowDown.svg?react';
+import Sms from './assets/sms.svg?react';
+import Mms from './assets/mms.svg?react';
+import Vink from './assets/Vink.svg?react';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='modal'>
+      <div className='modal__container-up'>
+        <div className='modal__container-name'>
+          <img className='modal__avatar' src={Avatar} alt='фото пользователя' />
+          <div className='modal__container-online'>
+            <Online className='modal__circle' />
+            <p className='modal__name'>{modalData.name}</p>
+          </div>
+          <p className='modal__sub-name'>{modalData.subName}</p>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className='modal__conteiner-main'>
+        <div className='modal__conteiner-chat'></div>
+        <div className='modal__conteiner-footer'>
+          <p className='modal__vink-text'>{modalData.comand}</p>
+          <Vink />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+      <div className='modal__conteiner-frame'>
+        <div className='modal__conteiner-arrow'>
+          <ArrowDown />
+        </div>
+        <div className='modal__conteiner-icons'>
+          {IconsData.map((item, index) => {
+            return <Icons key={index} title={item.title} icon={item.icon} />;
+          })}
+        </div>
+        <Sms className='modal__sms' />
+        <Mms className='modal__mms' />
+      </div>
+    </div>
+  );
+}
