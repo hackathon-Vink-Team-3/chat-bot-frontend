@@ -1,0 +1,46 @@
+.modal-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header__container-name {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.modal-header__conteiner-arrow {
+  width: 100%;
+}
+
+.modal-header__avatar {
+  margin: 15px auto 0;
+  border-radius: 10px;
+  display: block;
+}
+
+.modal-header__container-online {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header__circle {
+  margin-right: 10px;
+}
+
+.modal-header__name {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  color: #333333;
+  margin: 0;
+}
+
+.modal-header__sub-name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #333333;
+  margin: 0;
+  padding-bottom: 15px;
+}
