@@ -1,7 +1,5 @@
 import './Chat.css';
-// import Sms from './../../assets/sms.svg?react';
-// import Mms from './../../assets/mms.svg?react';
-// import { ChatData } from '../../utils/constants';
+
 // import IconChat from './../../assets/IconChat.svg?react';
 import User from './../../assets/user.svg?react';
 import Avatar from './../../assets/Avatar.jpg';
@@ -10,17 +8,7 @@ import Input from '../Input/Input';
 export default function Chat() {
   return (
     <div className='chat'>
-      {/* Без переписки */}
-      {/* <div className='chat__container-whithout-text'>
-      <div className='chat__container'>
-        <div className='chat__container-icons'>
-          <Sms className='modal__sms' />
-          <Mms className='modal__mms' />
-        </div>
-        <p className='chat__text'>{ChatData.textOne}</p>
-        <p className='chat__text'>{ChatData.textTwo}</p>
-      </div>
-      </div> */}
+     
 
       {/* С чатами */}
       {/* <div className='chat__container-with-chats'>

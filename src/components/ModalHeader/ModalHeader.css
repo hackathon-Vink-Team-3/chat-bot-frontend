@@ -1,6 +1,7 @@
 .modal-header {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .modal-header__container-name {
