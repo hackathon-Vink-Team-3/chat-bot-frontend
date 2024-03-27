@@ -1,0 +1,6 @@
+.icons-container {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  padding: 15px 0 0;
+}
