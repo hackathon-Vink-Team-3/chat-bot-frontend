@@ -4,3 +4,48 @@
   justify-content: center;
   padding: 15px 0 0;
 }
+
+.chat__container-whithout-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  margin: 10px 0 0 0;
+}
+
+.chat__container {
+  width: 313px;
+  height: 126px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.chat__container-icons {
+  position: relative;
+  width: 85px;
+  height: 62px;
+}
+
+.chat__text {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.modal__sms {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+.modal__mms {
+  position: absolute;
+  top: 16px;
+  right: 4px;
+}
