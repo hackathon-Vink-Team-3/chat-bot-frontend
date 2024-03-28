@@ -22,6 +22,7 @@
 
 .input__img {
   position: absolute;
-  top: 28px;
+  top: 25px;
   right: 46px;
+  cursor: pointer;
 }

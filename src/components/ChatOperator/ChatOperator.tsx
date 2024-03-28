@@ -1,6 +1,5 @@
 import './ChatOperator.css';
-import User from './../../assets/user.svg?react';
-import MessageOperator from '../MessageOperator/MessageOperator';
+import Avatar from './../../assets/Avatar.jpg';
 
 interface ChatOperatorProps {
   text?: string;
@@ -9,16 +8,9 @@ interface ChatOperatorProps {
 export default function ChatOperator({ text }: ChatOperatorProps) {
   return (
     <div className='chat-operator'>
-      <div className='chat-operator__container-with-chat-text'>
-        <div className='chat-operator__container-operator'>
-          <User className='chat-operator__avatar' />
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
-          >
-            <MessageOperator text={text} />
-            
-          </div>
-        </div>
+      <img src={Avatar} alt='фото пользователя' className='chat-user__avatar' />{' '}
+      <div className='chat-operator__container'>
+        <p className='chat-operator__messedge'>{text}</p>
       </div>
     </div>
   );

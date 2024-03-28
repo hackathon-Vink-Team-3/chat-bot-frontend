@@ -52,3 +52,20 @@ export const messageOperatorData = {
   Лист акрил. EVOGLAS XT 2*2050*3050 мм GE 
   прозрачный 92%. Цена 6 118,81 руб за 1 шт.`,
 };
+
+export const messageUserData = {
+  messOne: `Здравствуйте. Я хотел бы лист акриловый прикупить, у вас есть в
+  наличии?`,
+  messTwo: '12,98',
+  messThree: 'Спасибо',
+};
+
+export const rateData = {
+  messOne: `Оцените, пожалуйста, насколько вероятно, что вы 
+  порекомендуете нашу компанию своим знакомым?`,
+  messTwo: 'Благодарим за обратную связь!',
+};
+
+export const thanksData = {
+  thanks: 'Благодарим за обратную связь!'
+};

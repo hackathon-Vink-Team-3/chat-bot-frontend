@@ -16,7 +16,7 @@ export default function IconsContainer() {
 
       {/* Без переписки */}
 
-      <div className='icons-container-whithout-text'>
+      {/* <div className='icons-container-whithout-text'>
         <div className='icons-container__container'>
           <div className='icons-container-icons'>
             <Sms className='icons-container__sms' />
@@ -25,10 +25,10 @@ export default function IconsContainer() {
           <p className='icons-container__text'>{ChatData.textOne}</p>
           <p className='icons-container__text'>{ChatData.textTwo}</p>
         </div>
-      </div>
+      </div> */}
 
       {/* С чатами */}
-      {/* <div className='icons-container__with-chats'>
+      <div className='icons-container__with-chats'>
         <p className='icons-container__history'>{ChatData.history}</p>
 
         <div className='icons-container__chat'>
@@ -39,20 +39,24 @@ export default function IconsContainer() {
               Команда Винк: Рады был помочь!
             </p>
           </div>
-          <p className='icons-container__text icons-container__text_side-right'>11:30</p>
+          <p className='icons-container__text icons-container__text_side-right'>
+            11:30
+          </p>
         </div>
 
         <div className='icons-container__chat'>
           <IconChat />
           <div className='icons-container__container-text'>
             <p className='icons-container__name'>Винк</p>
-            <p className='icons-container__text'>Команда Винк: Рады был помочь!</p>
+            <p className='icons-container__text'>
+              Команда Винк: Рады был помочь!
+            </p>
           </div>
           <p className='icons-container__text icons-container__text_side-right'>
             11:30
           </p>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
