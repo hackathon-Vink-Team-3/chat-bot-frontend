@@ -5,6 +5,7 @@ import ModalFooter from '../ModalFooter/ModalFooter';
 import ModalHeader from '../ModalHeader/ModalHeader';
 import Whatsapp from '../Whatsapp/Whatsapp';
 import Telegram from '../Telegram/Telegram';
+import Rate from '../Rate/Rate';
 
 export default function Modal() {
   return (
@@ -12,9 +13,10 @@ export default function Modal() {
       <ModalHeader />
       <div className='modal__conteiner-main'>
          {/* <IconsContainer />  */}
-         {/* <Chat /> */}
+         <Chat />
         {/* <Telegram /> */}
-        <Whatsapp />
+        {/* <Whatsapp /> */}
+        {/* <Rate /> */}
         <ModalFooter />
       </div>
     </div>

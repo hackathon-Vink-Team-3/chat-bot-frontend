@@ -1,0 +1,41 @@
+.chat-operator {
+  border-radius: 20px;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.chat-operator__container-with-chat-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chat-operator__container-messedge_type_blue {
+  background-color: #1565ff;
+  text-align: right;
+}
+
+.chat-operator__container-operator {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.chat-operator__avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8.33px;
+}
+
+.chat__container-user {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: end;
+}

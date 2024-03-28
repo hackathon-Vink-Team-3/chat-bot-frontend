@@ -44,3 +44,11 @@ export const telegramData = {
 export const whatsappData = {
   text: 'Comming soon...',
 };
+
+export const messageOperatorData = {
+  messOne: 'Здравствуйте',
+  messTwo: 'Какая толщина вас интересует?',
+  messThree: `Да, такой есть в наличии. 
+  Лист акрил. EVOGLAS XT 2*2050*3050 мм GE 
+  прозрачный 92%. Цена 6 118,81 руб за 1 шт.`,
+};
