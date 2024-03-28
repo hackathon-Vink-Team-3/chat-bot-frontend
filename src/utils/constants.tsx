@@ -11,7 +11,7 @@ export const modalData = {
 export const ChatData = {
   textOne: 'Мы с вами еще не общались',
   textTwo: 'Здесь будет история ваших сообщений',
-  history: 'История'
+  history: 'История',
 };
 
 export const IconsData = [
@@ -28,3 +28,19 @@ export const IconsData = [
     icon: Whatsapp,
   },
 ];
+
+export const telegramListData = [
+  'Откройте Telegram с помощью кнопки ниже, чтобы перейти в нужный диалог',
+  'Нажмите кнопку «Start» в Telegram',
+  'Напишите нам свой вопрос',
+];
+
+export const telegramData = {
+  title: 'Начать или продолжить диалог в Telegram',
+  button: 'Открыть Telegram',
+  qr: 'Отсканируйте этот QR-код, чтобы открыть Telegram с другого устройства',
+};
+
+export const whatsappData = {
+  text: 'Comming soon...',
+};

@@ -1,5 +1,4 @@
 import './Chat.css';
-
 import User from './../../assets/user.svg?react';
 import Avatar from './../../assets/Avatar.jpg';
 import Input from '../Input/Input';

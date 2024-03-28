@@ -2,7 +2,8 @@
   display: flex;
   gap: 32px;
   justify-content: center;
-  padding: 15px 0 0;
+  padding: 015px 13px;
+  height: 88px;
 }
 
 .icons-container-whithout-text {
@@ -57,6 +58,7 @@
   gap: 10px;
   margin: 20px 0 0;
   width: 471px;
+  height: 100%;
 }
 
 .icons-container__chat {
