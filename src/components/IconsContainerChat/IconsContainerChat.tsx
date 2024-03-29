@@ -5,23 +5,25 @@ interface IconsContainerChatProps {
   name: string;
   text: string;
   time: string;
+  handleOpenChat: () => void;
 }
 
 export default function IconsContainerChat({
   name,
   text,
   time,
+  handleOpenChat,
 }: IconsContainerChatProps) {
   return (
-    <>
-      <IconChat />
-      <div className='icons-container__container-text'>
-        <p className='icons-container__name'>{name}</p>
-        <p className='icons-container__text'>{text}</p>
+    <div className='icons-container-chat' onClick={handleOpenChat}>
+       <IconChat />
+      <div className='icons-container-chat__text'>
+        <p className='icons-container-chat__name'>{name}</p>
+        <p className='icons-container-chat__text'>{text}</p>
       </div>
-      <p className='icons-container__text icons-container__text_side-right'>
+      <p className='icons-container-chat__text'>
         {time}
       </p>
-    </>
+    </div>
   );
 }

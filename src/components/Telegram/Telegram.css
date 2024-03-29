@@ -1,6 +1,13 @@
 .telegram {
   height: 100%;
   padding: 30px 54px;
+  position: relative;
+}
+
+.telegram__back {
+ position: absolute;
+ top: -101px;
+ left: 19px;
 }
 
 .telegram__title {

@@ -4,7 +4,14 @@
   justify-content: center;
   gap: 15px;
   height: 100%;
+  position: relative;
 }
+
+.whatsapp__back {
+  position: absolute;
+  top: -101px;
+  left: -135px;
+ }
 
 .whatsapp__text {
   color: #000000;

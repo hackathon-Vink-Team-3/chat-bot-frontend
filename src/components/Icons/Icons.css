@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.icons__container.first {
+  background-color: #F8D845;
+}
+
 .icons__text {
   margin: 6px 0 0;
   color: #333333;

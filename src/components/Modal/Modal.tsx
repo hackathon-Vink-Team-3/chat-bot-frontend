@@ -7,22 +7,57 @@ import Whatsapp from '../Whatsapp/Whatsapp';
 import Telegram from '../Telegram/Telegram';
 import Rate from '../Rate/Rate';
 import Thanks from '../Thanks/Thanks';
+import { useState } from 'react';
 
 interface ModalProps {
   handleCloseChat: () => void;
+  isRateOpen: boolean;
+  isThanksOpen: boolean;
 }
 
-export default function Modal({ handleCloseChat }: ModalProps) {
+export default function Modal({
+  handleCloseChat,
+  isRateOpen,
+  isThanksOpen,
+}: ModalProps) {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isTelegramOpen, setIsTelegramOpen] = useState<boolean>(false);
+  const [isWhatsappOpen, setIsWhatsappOpen] = useState(false);
+
+  const handleOpenChat = () => {
+    setIsChatOpen(true);
+  };
+
+  const handleOpenTelegram = () => {
+    setIsTelegramOpen(true);
+  };
+
+  const handleOpenWhatsapp = () => {
+    setIsWhatsappOpen(true);
+  };
+
   return (
     <div className='modal'>
-      <ModalHeader handleCloseChat={handleCloseChat}/>
+      <ModalHeader handleCloseChat={handleCloseChat} />
       <div className='modal__conteiner-main'>
-         <IconsContainer /> 
-         {/* <Chat /> */}
-        {/* <Telegram /> */}
-        {/* <Whatsapp /> */}
-        {/* <Rate /> */}
-        {/* <Thanks /> */}
+        {isTelegramOpen && <Telegram setIsTelegramOpen={setIsTelegramOpen} />}
+        {isWhatsappOpen && <Whatsapp setIsWhatsappOpen={setIsWhatsappOpen} />}
+        {isRateOpen && <Rate />}
+        {isThanksOpen && <Thanks />}
+
+        {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && (
+          <>
+            {isChatOpen ? (
+              <Chat setIsChatOpen={setIsChatOpen} />
+            ) : (
+              <IconsContainer
+                handleOpenChat={handleOpenChat}
+                handleOpenTelegram={handleOpenTelegram}
+                handleOpenWhatsapp={handleOpenWhatsapp}
+              />
+            )}
+          </>
+        )}
         <ModalFooter />
       </div>
     </div>

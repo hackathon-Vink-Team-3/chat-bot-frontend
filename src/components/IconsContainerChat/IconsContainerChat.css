@@ -1,4 +1,16 @@
-.icons-container__name {
+.icons-container-chat {
+  padding: 7px 19px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  gap: 25px;
+  cursor: pointer;
+}
+
+.icons-container-chat__name {
   color: #333333;
   font-size: 16px;
   font-weight: 500;
@@ -6,16 +18,11 @@
   margin: 0;
 }
 
-.icons-container__text {
+.icons-container-chat__text {
   color: #333333;
   font-size: 16px;
   font-weight: 400;
   line-height: 22.4px;
-  margin: 0;
+  margin: 0 0 0 auto;
   text-align: left;
-  margin-left: 19px;
-}
-
-.icons-container__text_side-right {
-  margin-left: auto;
 }

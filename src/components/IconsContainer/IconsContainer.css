@@ -53,17 +53,6 @@
   height: 100%;
 }
 
-.icons-container__chat {
-  padding: 7px 19px;
-  background-color: #f2f2f2;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  box-sizing: border-box;
-  gap: 25px;
-}
-
 .icons-container__history {
   color: #333333;
   font-size: 16px;
@@ -73,14 +62,6 @@
   text-align: center;
 }
 
-.icons-container__name {
-  color: #333333;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 22.4px;
-  margin: 0;
-}
-
 .icons-container__text {
   color: #333333;
   font-size: 16px;
@@ -88,8 +69,4 @@
   line-height: 22.4px;
   margin: 0;
   text-align: left;
-}
-
-.icons-container__text_side-right {
-  margin-left: auto;
 }
