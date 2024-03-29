@@ -11,6 +11,7 @@
   position: absolute;
   top: -101px;
   left: -135px;
+  cursor: pointer;
  }
 
 .whatsapp__text {

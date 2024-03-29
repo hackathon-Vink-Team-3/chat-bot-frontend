@@ -1,5 +1,5 @@
 import './ModalFooter.css';
-import Vink from '../../assets/Vink.svg';
+import Vink from '../../assets/vink.svg';
 import { modalData } from '../../utils/constants';
 
 export default function ModalFooter() {

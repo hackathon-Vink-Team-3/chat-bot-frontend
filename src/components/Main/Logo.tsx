@@ -1,5 +1,7 @@
-import LogoImage from "../../assets/logoVink.svg";
+import LogoImage from '../../assets/logoVink.svg?react';
 
-const Logo = () => <img src={LogoImage} alt="Логотип" />;
-
-export default Logo;
+export default function Logo () {
+  return (
+  <LogoImage />
+  )
+}

@@ -1,9 +1,13 @@
-import ChatButtonImage from "../../assets/ChatButton.svg";
+import ChatButtonImage from '../../assets/ChatButton.svg?react';
 
-const ChatButton = () => (
-  <button className="chat-button">
-    <img src={ChatButtonImage} alt="Изображение кнопки чата" />
-  </button>
-);
+interface ChatButtonProps {
+  handleOpenChat: () => void;
+}
 
-export default ChatButton;
+export default function ChatButton({ handleOpenChat }: ChatButtonProps) {
+  return (
+    <>
+  <ChatButtonImage onClick={handleOpenChat} className='chat-button' />
+  </>
+  )
+}

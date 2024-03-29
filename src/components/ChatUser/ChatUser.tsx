@@ -1,5 +1,5 @@
 import './ChatUser.css';
-import User from './../../assets/user.svg?react';
+import UserImg from './../../assets/User.png';
 
 interface ChatUserProps {
   text?: string;
@@ -11,7 +11,7 @@ export default function ChatUser({ text }: ChatUserProps) {
       <div className='chat-user__container-messedge'>
         <p className='chat-user__messedge'>{text}</p>
       </div>
-      <User className='chat-operator__avatar' />
+      <img src={UserImg} alt='иконка юзера' className='chat-operator__avatar' />
     </div>
   );
 }

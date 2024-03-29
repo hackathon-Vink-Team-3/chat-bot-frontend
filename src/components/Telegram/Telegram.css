@@ -8,6 +8,7 @@
  position: absolute;
  top: -101px;
  left: 19px;
+ cursor: pointer;
 }
 
 .telegram__title {
