@@ -8,13 +8,13 @@ export const modalData = {
   comand: 'Команда №3 Хакатона',
 };
 
-export const ChatData = {
+export const chatData = {
   textOne: 'Мы с вами еще не общались',
   textTwo: 'Здесь будет история ваших сообщений',
   history: 'История',
 };
 
-export const IconsData = [
+export const iconsData = [
   {
     title: 'Написать',
     icon: Write,
@@ -67,5 +67,18 @@ export const rateData = {
 };
 
 export const thanksData = {
-  thanks: 'Благодарим за обратную связь!'
+  thanks: 'Благодарим за обратную связь!',
 };
+
+export const iconsContainerData = [
+  {
+    name: 'Винк',
+    text: 'Команда Винк: Рады был помочь!',
+    time: '11:30',
+  },
+  {
+    name: 'Винк',
+    text: 'Команда Винк: Рады был помочь!',
+    time: '11:30',
+  },
+];

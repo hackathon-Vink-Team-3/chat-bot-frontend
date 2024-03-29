@@ -8,10 +8,14 @@ import Telegram from '../Telegram/Telegram';
 import Rate from '../Rate/Rate';
 import Thanks from '../Thanks/Thanks';
 
-export default function Modal() {
+interface ModalProps {
+  handleCloseChat: () => void;
+}
+
+export default function Modal({ handleCloseChat }: ModalProps) {
   return (
     <div className='modal'>
-      <ModalHeader />
+      <ModalHeader handleCloseChat={handleCloseChat}/>
       <div className='modal__conteiner-main'>
          <IconsContainer /> 
          {/* <Chat /> */}

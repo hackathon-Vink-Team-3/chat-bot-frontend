@@ -32,14 +32,6 @@
   height: 62px;
 }
 
-.icons-container__text {
-  color: #333333;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 22.4px;
-  margin: 0;
-}
-
 .icons-container__sms {
   position: absolute;
   top: 4px;
@@ -72,11 +64,6 @@
   gap: 25px;
 }
 
-.icons-container__text {
-  text-align: left;
-  margin-left: 19px;
-}
-
 .icons-container__history {
   color: #333333;
   font-size: 16px;
@@ -100,6 +87,7 @@
   font-weight: 400;
   line-height: 22.4px;
   margin: 0;
+  text-align: left;
 }
 
 .icons-container__text_side-right {
