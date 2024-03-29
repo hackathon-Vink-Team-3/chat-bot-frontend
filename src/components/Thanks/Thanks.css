@@ -1,0 +1,11 @@
+.thanks {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 450px;
+}
+
+.thanks__img {
+  margin: 19px auto 0;
+}

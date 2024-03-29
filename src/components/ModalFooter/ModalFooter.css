@@ -2,13 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 128px;
+  min-height: 50px;
 }
 
-.modal-footer-text {
+.modal-footer__text {
   color: #333333;
   font-size: 16px;
   font-weight: 400;

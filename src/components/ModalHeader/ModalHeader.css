@@ -44,4 +44,12 @@
   color: #333333;
   margin: 0;
   padding-bottom: 15px;
+  text-align: center;
+}
+
+.modal__arrow {
+  position: absolute;
+  top: 15px;
+  right: 19px;
+  cursor: pointer;
 }

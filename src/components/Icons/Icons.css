@@ -6,6 +6,11 @@
   border-radius: 50%;
   width: 60px;
   height: 62px;
+  cursor: pointer;
+}
+
+.icons__container.first {
+  background-color: #F8D845;
 }
 
 .icons__text {

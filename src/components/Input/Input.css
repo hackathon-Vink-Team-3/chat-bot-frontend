@@ -1,5 +1,5 @@
 .input__container {
-  margin: 20px auto 0;
+  margin: 15px auto 0;
   height: 76px;
   width: 100%;
   padding: 14px 24px;
@@ -22,6 +22,7 @@
 
 .input__img {
   position: absolute;
-  top: 28px;
+  top: 25px;
   right: 46px;
+  cursor: pointer;
 }
