@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import './Main.css';
+import Logo from "./Logo";
+import CompanyDescription from "./CompanyDescription";
+import ChatButton from "./ChatButton";
 
 export default function Main() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -27,6 +30,17 @@ export default function Main() {
 
   return (
     <div className='main'>
+      
+          <div className="first-section">
+      <Logo />
+      <CompanyDescription />
+    </div>
+    <div className="second-section">
+      <ChatButton />
+      <Modal />
+      
+      
+      
       <button
         onClick={handleOpenChat}
         style={{ width: '200px', height: '100px' }}
@@ -52,6 +66,11 @@ export default function Main() {
           isThanksOpen={isThanksOpen}
         />
       )}
-    </div>
-  );
-}
+
+
+    
+      
+
+  </div>
+);
+

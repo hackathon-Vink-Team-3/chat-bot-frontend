@@ -2,4 +2,59 @@
   position: relative;
   width: 1440px;
   height: 100vh;
+  display: flex;
+}
+
+.first-section {
+  width: 50%;
+  background-color: #333333;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Отцентрируем по вертикали */
+}
+
+.first-section img {
+  margin-bottom: 20px;
+  /* Добавляем отступ снизу для логотипа */
+}
+
+.subtitile {
+
+  font-size: 16px;
+  font-weight: 400;
+  width: 418px;
+
+}
+
+.second-section {
+  width: 50%;
+  background-color: white;
+  display: flex;
+  /* Добавлено для корректного выравнивания элементов */
+  flex-direction: column;
+  /* Установлено для вертикального выравнивания кнопки */
+  justify-content: flex-end;
+  /* Перенесли кнопку вправо вниз */
+  padding: 20px;
+  /* Добавлен отступ для кнопки */
+}
+
+.chat-button {
+  width: 62px;
+  height: 62px;
+  background-color: #F8D845;
+  /* Цвет кнопки */
+  color: #ffffff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  /* Делаем кнопку круглой */
+  align-self: flex-end;
+  /* Переместим кнопку вправо вниз */
+  margin-top: auto;
 }
