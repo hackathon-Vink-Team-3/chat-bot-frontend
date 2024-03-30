@@ -47,6 +47,7 @@ export default function Modal({
         {/* {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && ( */}
 
         {!isTelegramOpen && !isWhatsappOpen && (
+
           <>
             {isChatOpen ? (
               <Chat setIsChatOpen={setIsChatOpen} />
