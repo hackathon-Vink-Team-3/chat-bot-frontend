@@ -7,9 +7,10 @@ import ChatUser from '../ChatUser/ChatUser';
 
 interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
+  setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function Chat({ setIsChatOpen }: ChatProps) {
+export default function Chat({ setIsChatOpen, setInactiveTime }: ChatProps) {
 
   const handleBack = () => {
     setIsChatOpen(false)
@@ -25,7 +26,7 @@ export default function Chat({ setIsChatOpen }: ChatProps) {
         <ChatOperator text={messageOperatorData.messTwo} />
         <ChatUser text={messageUserData.messThree} />
       </div>
-      <Input />
+      <Input setInactiveTime={setInactiveTime}/>
     </div>
   );
 }

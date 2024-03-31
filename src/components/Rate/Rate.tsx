@@ -5,14 +5,19 @@ import { rateData } from '../../utils/constants';
 import RateStars from '../RateStars/RateStars';
 
 interface RateProps {
-  setInactiveTime: React.Dispatch<React.SetStateAction<number>>}
+  setIsThanksOpen: (isOpen: boolean) => void;
+  handleCloseChat: (isOpen: boolean) => void;
+}
 
-export default function Rate({ setInactiveTime }: RateProps) {
+export default function Rate({ setIsThanksOpen, handleCloseChat }: RateProps) {
   return (
     <div className='rate'>
       <ChatOperator text={rateData.messOne} />
-      <RateStars />
-      <Input setInactiveTime={setInactiveTime}/>
+      <RateStars
+        setIsThanksOpen={setIsThanksOpen}
+        handleCloseChat={handleCloseChat}
+      />
+      <Input />
     </div>
   );
 }

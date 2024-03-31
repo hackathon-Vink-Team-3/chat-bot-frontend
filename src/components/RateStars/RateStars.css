@@ -20,7 +20,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 }
 
 .currentStep_type_active {
@@ -29,7 +28,6 @@
 
 .statusBar__item:hover {
   background-color: #f8d845;
-  transform: scale(1.1);
 }
 
 .statusBar__mark {

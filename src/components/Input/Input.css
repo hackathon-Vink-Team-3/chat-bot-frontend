@@ -25,9 +25,4 @@
   top: 25px;
   right: 46px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.input__img:hover {
-  transform: scale(1.2);
 }

@@ -11,44 +11,22 @@ import { useEffect, useRef, useState } from 'react';
 
 interface ModalProps {
   handleCloseChat: () => void;
-  isThanksOpen: boolean;
 }
 
-export default function Modal({
-  handleCloseChat,
-  isThanksOpen,
-}: ModalProps) {
+export default function Modal({ handleCloseChat }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isTelegramOpen, setIsTelegramOpen] = useState<boolean>(false);
   const [isWhatsappOpen, setIsWhatsappOpen] = useState(false);
-  const [inactiveTime, setInactiveTime] = useState(0);
   const [isRateOpen, setIsRateOpen] = useState(false);
-
-  useEffect(() => {
-    if (modalRef.current) {
-      const modal = modalRef.current;
-      modal.style.display = 'block';
-      modal.style.opacity = '0';
-      modal.animate(
-        [
-          { opacity: 0 },
-          { opacity: 1 }
-        ],
-        {
-          duration: 400,
-          easing: 'ease-in-out',
-          fill: 'forwards'
-        }
-      );
-    }
-  }, []);
+  const [inactiveTime, setInactiveTime] = useState(0);
+  const [isThanksOpen, setIsThanksOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setInactiveTime((prevTime) => prevTime + 1);
     }, 600);
-      return () => clearInterval(interval);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -56,6 +34,19 @@ export default function Modal({
       setIsRateOpen(true);
     }
   }, [inactiveTime]);
+
+  useEffect(() => {
+    if (modalRef.current) {
+      const modal = modalRef.current;
+      modal.style.display = 'block';
+      modal.style.opacity = '0';
+      modal.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration: 400,
+        easing: 'ease-in-out',
+        fill: 'forwards',
+      });
+    }
+  }, []);
 
   const handleOpenNewChat = () => {
     setIsChatOpen(true);
@@ -74,17 +65,25 @@ export default function Modal({
   };
 
   return (
-    <div className='modal'  ref={modalRef}>
+    <div className='modal' ref={modalRef}>
       <ModalHeader handleCloseChat={handleCloseChat} />
       <div className='modal__conteiner-main'>
         {isTelegramOpen && <Telegram setIsTelegramOpen={setIsTelegramOpen} />}
         {isWhatsappOpen && <Whatsapp setIsWhatsappOpen={setIsWhatsappOpen} />}
-        {isRateOpen && <Rate setInactiveTime={setInactiveTime}/>}
+        {isRateOpen && (
+          <Rate
+            setIsThanksOpen={setIsThanksOpen}
+            handleCloseChat={handleCloseChat}
+          />
+        )}
         {isThanksOpen && <Thanks />}
         {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && (
           <>
             {isChatOpen ? (
-              <Chat setIsChatOpen={setIsChatOpen} />
+              <Chat
+                setIsChatOpen={setIsChatOpen}
+                setInactiveTime={setInactiveTime}
+              />
             ) : (
               <IconsContainer
                 handleOpenChat={handleOpenChat}
@@ -100,4 +99,3 @@ export default function Modal({
     </div>
   );
 }
-        {/* {!isTelegramOpen && !isWhatsappOpen && ( */}

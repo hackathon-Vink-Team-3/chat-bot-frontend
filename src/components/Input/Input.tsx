@@ -2,11 +2,14 @@ import './Input.css';
 import Send from './../../assets/Send.svg?react';
 
 interface InputProps {
-  setInactiveTime: React.Dispatch<React.SetStateAction<number>>}
+  setInactiveTime?: React.Dispatch<React.SetStateAction<number>>;
+}
 
 export default function Input({ setInactiveTime }: InputProps) {
   const handleInput = () => {
-    setInactiveTime(0);
+    if (setInactiveTime) {
+      setInactiveTime(0);
+    }
   };
 
   return (

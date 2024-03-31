@@ -1,11 +1,22 @@
 import './RateStars.css';
 import { useState } from 'react';
 
-export default function RateStars() {
+interface RateStarsProps {
+  setIsThanksOpen: (isOpen: boolean) => void;
+  handleCloseChat: (isOpen: boolean) => void;
+}
+
+export default function RateStars({ setIsThanksOpen, handleCloseChat }: RateStarsProps) {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
   const handleRate = (index: number) => {
     setCurrentStep(index + 1);
+    setTimeout(() => {
+      setIsThanksOpen(true);
+    }, 3000);
+    setTimeout(() => {
+      handleCloseChat(true);
+    }, 6000);
   };
 
   const handleMouseOver = (index: number) => {
