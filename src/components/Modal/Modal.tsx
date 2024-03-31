@@ -25,7 +25,7 @@ export default function Modal({ handleCloseChat }: ModalProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setInactiveTime((prevTime) => prevTime + 1);
-    }, 6000);
+    }, 600);
     return () => clearInterval(interval);
   }, []);
 

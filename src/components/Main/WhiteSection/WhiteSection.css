@@ -1,0 +1,25 @@
+.white-section {
+  width: 100%;
+  max-width: 782px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+}
+
+.white-section__button {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+
+@media screen and (max-width: 1100px) {
+  .white-section {
+    display: none;
+  }
+}
