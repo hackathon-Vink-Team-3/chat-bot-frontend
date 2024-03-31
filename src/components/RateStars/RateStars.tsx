@@ -16,7 +16,7 @@ export default function RateStars({ setIsThanksOpen, handleCloseChat }: RateStar
     }, 3000);
     setTimeout(() => {
       handleCloseChat(true);
-    }, 6000);
+    }, 9000);
   };
 
   const handleMouseOver = (index: number) => {

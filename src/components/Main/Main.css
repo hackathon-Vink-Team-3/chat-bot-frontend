@@ -43,18 +43,12 @@
   /* Перенесли кнопку вправо вниз */
   padding: 0;
   /* Добавлен отступ для кнопки */
+  position: relative;
 }
 
 .chat-button {
-  width: 62px;
-  height: 62px;
-  color: #ffffff;
-  border: none;
-  font-size: 16px;
   cursor: pointer;
-  border-radius: 50%;
-  /* Делаем кнопку круглой */
-  align-self: flex-end;
-  /* Переместим кнопку вправо вниз */
-  margin-top: auto;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
 }
