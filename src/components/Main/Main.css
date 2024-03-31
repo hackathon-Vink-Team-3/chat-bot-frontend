@@ -21,6 +21,13 @@
   /* Отцентрируем по вертикали */
 }
 
+/* 1024 */
+@media screen and (max-width: 1100px) {
+  .first-section {
+    display: none;
+  }
+}
+
 .first-section img {
   margin-bottom: 20px;
   /* Добавляем отступ снизу для логотипа */

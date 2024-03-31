@@ -13,7 +13,7 @@ export default function RateStars({ setIsThanksOpen, handleCloseChat }: RateStar
     setCurrentStep(index + 1);
     setTimeout(() => {
       setIsThanksOpen(true);
-    }, 3000);
+    }, 4000);
     setTimeout(() => {
       handleCloseChat(true);
     }, 9000);
