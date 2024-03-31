@@ -52,9 +52,4 @@
   top: 15px;
   right: 19px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.modal__arrow:hover {
-  transform: scale(1.1);
 }

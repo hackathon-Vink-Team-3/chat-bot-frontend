@@ -1,9 +1,7 @@
-import Modal from '../Modal/Modal';
 import './Main.css';
-import Logo from './Logo';
-import CompanyDescription from './CompanyDescription';
-import ChatButton from './ChatButton';
 import { useState } from 'react';
+import Layout from './Layout/Layout';
+import Modal from '../Modal/Modal';
 
 export default function Main() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -17,18 +15,8 @@ export default function Main() {
 
   return (
     <div className='main'>
-      <div className='first-section'>
-        <Logo />
-        <CompanyDescription />
-      </div>
-      <div className='second-section'>
-        <ChatButton handleOpenChat={handleOpenChat} />
-        {isPopupOpen && (
-          <Modal
-            handleCloseChat={handleCloseChat}
-          />
-        )}
-      </div>
+      <Layout handleOpenChat={handleOpenChat} />
+      {isPopupOpen && <Modal handleCloseChat={handleCloseChat} />}
     </div>
   );
 }

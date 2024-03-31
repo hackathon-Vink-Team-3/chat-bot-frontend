@@ -74,3 +74,6 @@ export const iconsContainerData = [
     time: '11:30',
   },
 ];
+
+export const COMPANY_DESCRIPTION = `Компания Винк — крупнейший поставщик
+ материалов и оборудования для рынка визуальных офлайн-коммуникаций`;

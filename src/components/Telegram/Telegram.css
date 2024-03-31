@@ -9,11 +9,6 @@
  top: -101px;
  left: 19px;
  cursor: pointer;
- transition: transform 0.3s ease-in-out;
-}
-
-.telegram__back:hover {
-  transform: scale(1.1);
 }
 
 .telegram__title {
