@@ -2,7 +2,7 @@ import './ModalHeader.css';
 import { modalData } from '../../utils/constants';
 import Online from './../../assets/Online.svg?react';
 import Avatar from './../../assets/Avatar.jpg';
-import ArrowDown from './../../assets/ArrowDown.svg?react';
+import ButtonClose from '../ButtonClose/ButtonClose';
 
 interface ModalHeaderProps {
   handleCloseChat: () => void;
@@ -11,7 +11,7 @@ interface ModalHeaderProps {
 export default function ModalHeader({ handleCloseChat }: ModalHeaderProps) {
   return (
     <div className='modal-header'>
-      <ArrowDown className='modal__arrow' onClick={handleCloseChat} />
+      <ButtonClose handleCloseChat={handleCloseChat} />
       <div className='modal-header__container-name'>
         <div className='modal-header__conteiner-arrow'>
           <img

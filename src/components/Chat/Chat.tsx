@@ -18,12 +18,11 @@ export default function Chat({ setIsChatOpen }: ChatProps) {
   return (
     <div className='chat'>
       <Back className='chat__back' onClick={handleBack} />
-      <div className='chat__container-with-chat-text'>
+      <div className='chat__container'>
         <ChatUser text={messageUserData.messOne} />
         <ChatOperator text={messageOperatorData.messOne} />
-        <ChatOperator text={messageOperatorData.messTwo} />
         <ChatUser text={messageUserData.messTwo} />
-        <ChatOperator text={messageOperatorData.messThree} />
+        <ChatOperator text={messageOperatorData.messTwo} />
         <ChatUser text={messageUserData.messThree} />
       </div>
       <Input />

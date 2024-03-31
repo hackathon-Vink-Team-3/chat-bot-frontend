@@ -8,6 +8,11 @@
   box-sizing: border-box;
   gap: 25px;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icons-container-chat:hover {
+  transform: scale(1.03);
 }
 
 .icons-container-chat__name {

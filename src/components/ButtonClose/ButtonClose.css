@@ -1,0 +1,11 @@
+.button-close {
+  position: absolute;
+  top: 15px;
+  right: 19px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-close:hover {
+  transform: scale(1.1);
+}

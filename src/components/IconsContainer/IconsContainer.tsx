@@ -9,12 +9,14 @@ interface IconsContainerProps {
   handleOpenChat: () => void;
   handleOpenTelegram: () => void;
   handleOpenWhatsapp: () => void;
+  handleOpenNewChat: () => void;
 }
 
 export default function IconsContainer({
   handleOpenChat,
   handleOpenTelegram,
   handleOpenWhatsapp,
+  handleOpenNewChat,
 }: IconsContainerProps) {
   return (
     <>
@@ -27,6 +29,7 @@ export default function IconsContainer({
               icon={item.icon}
               handleOpenTelegram={handleOpenTelegram}
               handleOpenWhatsapp={handleOpenWhatsapp}
+              handleOpenNewChat={handleOpenNewChat}
             />
           );
         })}
