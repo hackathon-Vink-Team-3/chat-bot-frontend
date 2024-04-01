@@ -6,11 +6,11 @@ import Hand from '../../assets/Thanks.svg';
 import { useEffect, useRef, useState } from 'react';
 import ChatUser from '../ChatUser/ChatUser';
 
-interface ThanksProps {
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// interface ThanksProps {
+//   setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-export default function Thanks({ setIsRateOpen }: ThanksProps) {
+export default function Thanks() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<string[]>([]);
 
@@ -24,17 +24,19 @@ export default function Thanks({ setIsRateOpen }: ThanksProps) {
     }
   }, [messages]);
 
+
+  
   return (
     <div className='thanks'>
       <ChatOperator text={THANKS_DATA.thanks} />
       <img src={Hand} className='thanks__img' alt='Спасибо' />
       <div className='thanks__container'>
+      <div ref={messagesEndRef}></div>
         {messages.map((message, index) => (
           <ChatUser key={index} text={message} />
         ))}
-        <div ref={messagesEndRef}></div>
       </div>
-      <Input addMessage={addMessage} setIsRateOpen={setIsRateOpen} />
+      <Input addMessage={addMessage} />
     </div>
   );
 }

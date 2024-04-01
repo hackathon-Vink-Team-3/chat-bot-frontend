@@ -9,16 +9,19 @@ import ChatUser from '../ChatUser/ChatUser';
 interface RateProps {
   setIsThanksOpen: (isOpen: boolean) => void;
   handleCloseChat: (isOpen: boolean) => void;
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setInputEnabled: (isOpen: boolean) => void;
+  inputEnabled: boolean;
 }
 
 export default function Rate({
   setIsThanksOpen,
   handleCloseChat,
-  setIsRateOpen,
+  setInputEnabled,
+  inputEnabled,
 }: RateProps) {
   const [messages, setMessages] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [rateStarsOpen, setRateStarsOpen] = useState(true);
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
   };
@@ -31,18 +34,23 @@ export default function Rate({
 
   return (
     <div className='rate'>
-      <ChatOperator text={RATE_DATA.messOne} />
-      <RateStars
-        setIsThanksOpen={setIsThanksOpen}
-        handleCloseChat={handleCloseChat}
-      />
-      <div className='rate__container'>
-      {messages.map((message, index) => (
-        <ChatUser key={index} text={message} />
-      ))}
+      <ChatOperator text={RATE_DATA.messOne} marginTop='25px' />
+      {rateStarsOpen && (
+        <RateStars
+          setIsThanksOpen={setIsThanksOpen}
+          handleCloseChat={handleCloseChat}
+          setInputEnabled={setInputEnabled}
+          setRateStarsOpen={setRateStarsOpen}
+        />
+      )}
       <div ref={messagesEndRef}></div>
+      <div className='rate__container'>
+        {messages.map((message, index) => (
+          <ChatUser key={index} text={message} />
+        ))}
+        <div ref={messagesEndRef}></div>
       </div>
-      <Input addMessage={addMessage} setIsRateOpen={setIsRateOpen}/>
+      {inputEnabled && <Input addMessage={addMessage} />}{' '}
     </div>
   );
 }

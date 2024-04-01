@@ -5,12 +5,10 @@ import { useState } from 'react';
 interface InputProps {
   setInactiveTime?: React.Dispatch<React.SetStateAction<number>>;
   addMessage: (message: string) => void;
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Input({
   setInactiveTime,
-  setIsRateOpen,
   addMessage,
 }: InputProps) {
   const [inputValue, setInputValue] = useState('');
@@ -19,9 +17,6 @@ export default function Input({
     setInputValue(event.target.value);
     if (setInactiveTime) {
       setInactiveTime(0);
-    }
-    if (event.target.value.toLowerCase().includes('спасибо')) {
-      setIsRateOpen(true);
     }
   };
 
@@ -41,7 +36,7 @@ export default function Input({
         value={inputValue}
         onChange={handleInput}
       />
-        <Send className='input__img' onClick={handleSendMessage} />
+      <Send className='input__img' onClick={handleSendMessage} />
     </div>
   );
 }

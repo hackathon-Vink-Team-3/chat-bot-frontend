@@ -9,19 +9,19 @@ import { useEffect, useRef, useState } from 'react';
 interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
   setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Chat({
   setIsChatOpen,
   setInactiveTime,
-  setIsRateOpen,
 }: ChatProps) {
   const [messages, setMessages] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
   };
+  
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -46,7 +46,6 @@ export default function Chat({
       <Input
         setInactiveTime={setInactiveTime}
         addMessage={addMessage}
-        setIsRateOpen={setIsRateOpen}
       />
     </div>
   );

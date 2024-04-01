@@ -4,8 +4,9 @@
   flex-direction: column;
   justify-content: end;
   width: 450px;
-  margin: 25px 0 0;
   overflow-x: hidden;
+  flex-grow: 1
+
 }
 
 .thanks__img {
@@ -19,6 +20,5 @@
   gap: 25px;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
   word-wrap: break-word;
 }
