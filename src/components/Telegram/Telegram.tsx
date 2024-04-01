@@ -1,5 +1,5 @@
 import './Telegram.css';
-import { telegramData, telegramListData } from '../../utils/constants';
+import { TELEGRAM_DATA, TELEGRAM_LIST_DATA } from '../../utils/constants';
 import TelegramIcon from './../../assets/Telegram.svg?react';
 import Qr from './../../assets/Qr.png';
 import TelegramList from '../TelegramList/TelegramList';
@@ -38,21 +38,21 @@ export default function Telegram({ setIsTelegramOpen }: TelegramProps) {
         <Back className='telegram__back' onClick={handleBack} />
         {isDesktop ? (
           <div>
-            <p className='telegram__title'>{telegramData.title}</p>
+            <p className='telegram__title'>{TELEGRAM_DATA.title}</p>
             <ol className='telegram__container-text'>
-              {telegramListData.map((item, index) => (
+              {TELEGRAM_LIST_DATA.map((item, index) => (
                 <TelegramList key={index} field={item} />
               ))}
             </ol>
             <button className='telegram__button'>
               <TelegramIcon style={{ width: '28px', height: '28px' }} />
-              <p className='telegram__text'>{telegramData.button}</p>
+              <p className='telegram__text'>{TELEGRAM_DATA.button}</p>
             </button>
           </div>
         ) : (
           <div className='telegram__container-desktop'>
             <img src={Qr} className='telegram__qr' alt='QR code' />
-            <p className='telegram__text-qr'>{telegramData.qr}</p>
+            <p className='telegram__text-qr'>{TELEGRAM_DATA.qr}</p>
           </div>
         )}
       </div>

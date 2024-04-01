@@ -1,5 +1,5 @@
 import './IconsContainer.css';
-import { iconsData, chatData, iconsContainerData } from '../../utils/constants';
+import { ICONS_DATA, CHAT_DATA, iconsContainerData } from '../../utils/constants';
 import Sms from './../../assets/sms.svg?react';
 import Mms from './../../assets/mms.svg?react';
 import Icons from '../Icons/Icons';
@@ -21,7 +21,7 @@ export default function IconsContainer({
   return (
     <>
       <div className='icons-container'>
-        {iconsData.map((item, index) => {
+        {ICONS_DATA.map((item, index) => {
           return (
             <Icons
               key={index}
@@ -41,13 +41,13 @@ export default function IconsContainer({
               <Sms className='icons-container__sms' />
               <Mms className='icons-container__mms' />
             </div>
-            <p className='icons-container__text'>{chatData.textOne}</p>
-            <p className='icons-container__text'>{chatData.textTwo}</p>
+            <p className='icons-container__text'>{CHAT_DATA.textOne}</p>
+            <p className='icons-container__text'>{CHAT_DATA.textTwo}</p>
           </div>
         </div>
       ) : (
         <div className='icons-container__with-chats'>
-          <p className='icons-container__history'>{chatData.history}</p>
+          <p className='icons-container__history'>{CHAT_DATA.history}</p>
           {iconsContainerData.map((item, index) => (
             <IconsContainerChat
               key={index}

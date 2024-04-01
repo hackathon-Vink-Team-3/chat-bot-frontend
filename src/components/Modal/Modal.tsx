@@ -77,7 +77,7 @@ export default function Modal({ handleCloseChat }: ModalProps) {
             setIsRateOpen={setIsRateOpen}
           />
         )}
-        {isThanksOpen && <Thanks />}
+        {isThanksOpen && <Thanks setIsRateOpen={setIsRateOpen}/>}
         {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && (
           <>
             {isChatOpen ? (

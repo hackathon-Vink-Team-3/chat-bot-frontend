@@ -41,7 +41,7 @@ export default function Input({
         value={inputValue}
         onChange={handleInput}
       />
-      <Send className='input__img' onClick={handleSendMessage} />
+        <Send className='input__img' onClick={handleSendMessage} />
     </div>
   );
 }

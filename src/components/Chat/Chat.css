@@ -16,6 +16,8 @@
   gap: 25px;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 .chat__back {

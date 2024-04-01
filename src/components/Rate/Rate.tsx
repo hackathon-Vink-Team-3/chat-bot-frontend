@@ -1,9 +1,9 @@
 import './Rate.css';
 import Input from '../Input/Input';
 import ChatOperator from '../ChatOperator/ChatOperator';
-import { rateData } from '../../utils/constants';
+import { RATE_DATA } from '../../utils/constants';
 import RateStars from '../RateStars/RateStars';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ChatUser from '../ChatUser/ChatUser';
 
 interface RateProps {
@@ -18,20 +18,30 @@ export default function Rate({
   setIsRateOpen,
 }: RateProps) {
   const [messages, setMessages] = useState<string[]>([]);
-
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
   };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
   return (
     <div className='rate'>
-      <ChatOperator text={rateData.messOne} />
+      <ChatOperator text={RATE_DATA.messOne} />
       <RateStars
         setIsThanksOpen={setIsThanksOpen}
         handleCloseChat={handleCloseChat}
       />
+      <div className='rate__container'>
       {messages.map((message, index) => (
         <ChatUser key={index} text={message} />
       ))}
+      <div ref={messagesEndRef}></div>
+      </div>
       <Input addMessage={addMessage} setIsRateOpen={setIsRateOpen}/>
     </div>
   );
