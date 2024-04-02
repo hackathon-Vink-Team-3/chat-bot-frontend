@@ -4,8 +4,6 @@
   flex-direction: column;
   justify-content: end;
   width: 450px;
-  flex: 1;
-  flex-shrink: 1;
 }
 
 .rate__container {

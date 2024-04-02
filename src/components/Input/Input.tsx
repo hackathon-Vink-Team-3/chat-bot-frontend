@@ -27,6 +27,12 @@ export default function Input({
     }
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+
   return (
     <div className='input__container'>
       <input
@@ -35,6 +41,7 @@ export default function Input({
         placeholder='Введите сообщение...'
         value={inputValue}
         onChange={handleInput}
+        onKeyDown={handleKeyDown}
       />
       <Send className='input__img' onClick={handleSendMessage} />
     </div>

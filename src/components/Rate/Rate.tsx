@@ -8,15 +8,15 @@ import ChatUser from '../ChatUser/ChatUser';
 
 interface RateProps {
   setIsThanksOpen: (isOpen: boolean) => void;
-  handleCloseChat: (isOpen: boolean) => void;
   setInputEnabled: (isOpen: boolean) => void;
   inputEnabled: boolean;
+  setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function Rate({
   setIsThanksOpen,
-  handleCloseChat,
   setInputEnabled,
+  setInactiveTime,
   inputEnabled,
 }: RateProps) {
   const [messages, setMessages] = useState<string[]>([]);
@@ -34,11 +34,10 @@ export default function Rate({
   return (
     <div className='rate'>
       <ChatOperator text={RATE_DATA.messOne} marginTop='25px' />
-        <RateStars
-          setIsThanksOpen={setIsThanksOpen}
-          handleCloseChat={handleCloseChat}
-          setInputEnabled={setInputEnabled}
-        />
+      <RateStars
+        setIsThanksOpen={setIsThanksOpen}
+        setInputEnabled={setInputEnabled}
+      />
       <div ref={messagesEndRef}></div>
       <div className='rate__container'>
         {messages.map((message, index) => (
@@ -46,7 +45,9 @@ export default function Rate({
         ))}
         <div ref={messagesEndRef}></div>
       </div>
-      {inputEnabled && <Input addMessage={addMessage} />}{' '}
+      {inputEnabled && (
+        <Input addMessage={addMessage} setInactiveTime={setInactiveTime} />
+      )}{' '}
     </div>
   );
 }
