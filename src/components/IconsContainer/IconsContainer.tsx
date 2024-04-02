@@ -1,5 +1,9 @@
 import './IconsContainer.css';
-import { ICONS_DATA, CHAT_DATA, iconsContainerData } from '../../utils/constants';
+import {
+  ICONS_DATA,
+  CHAT_DATA,
+  iconsContainerData,
+} from '../../utils/constants';
 import Sms from './../../assets/sms.svg?react';
 import Mms from './../../assets/mms.svg?react';
 import Icons from '../Icons/Icons';
@@ -42,7 +46,6 @@ export default function IconsContainer({
               <Mms className='icons-container__mms' />
             </div>
             <p className='icons-container__text'>{CHAT_DATA.textOne}</p>
-            <p className='icons-container__text'>{CHAT_DATA.textTwo}</p>
           </div>
         </div>
       ) : (

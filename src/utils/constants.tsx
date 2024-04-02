@@ -68,11 +68,6 @@ export const iconsContainerData = [
     text: 'Команда Винк: Рады был помочь!',
     time: '11:30',
   },
-  {
-    name: 'Винк',
-    text: 'Команда Винк: Рады был помочь!',
-    time: '11:30',
-  },
 ];
 
 export const COMPANY_DESCRIPTION = `Компания Винк — крупнейший поставщик

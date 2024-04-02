@@ -31,7 +31,7 @@ export default function Modal({ handleCloseChat }: ModalProps) {
   }, []);
 
   useEffect(() => {
-    if (inactiveTime >= 10) {
+    if (inactiveTime >= 4) {
       setIsRateOpen(true);
       setIsTelegramOpen(false);
       setIsWhatsappOpen(false);
@@ -81,7 +81,13 @@ export default function Modal({ handleCloseChat }: ModalProps) {
             setInactiveTime={setInactiveTime}
           />
         )}
-        {isThanksOpen && <Thanks />}
+        {isThanksOpen && (
+          <Thanks
+            setIsChatOpen={setIsChatOpen}
+            setIsRateOpen={setIsRateOpen}
+            setIsThanksOpen={setIsThanksOpen}
+          />
+        )}
         {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && (
           <>
             {isChatOpen ? (

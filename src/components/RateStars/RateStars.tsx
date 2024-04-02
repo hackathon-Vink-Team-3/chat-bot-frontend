@@ -15,9 +15,7 @@ export default function RateStars({
   const handleRate = (index: number) => {
     setCurrentStep(index + 1);
     setIsThanksOpen(true);
-    setTimeout(() => {
-      setInputEnabled(false);
-    }, 600);
+    setInputEnabled(false);
   };
 
   const handleMouseOver = (index: number) => {

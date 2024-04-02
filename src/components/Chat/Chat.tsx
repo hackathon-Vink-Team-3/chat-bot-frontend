@@ -34,7 +34,6 @@ export default function Chat({
       }, 900);
     }
   }, [messages]);
-  
 
   const handleBack = () => {
     setIsChatOpen(false);
