@@ -21,7 +21,6 @@ export default function Rate({
 }: RateProps) {
   const [messages, setMessages] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [rateStarsOpen, setRateStarsOpen] = useState(true);
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
   };
@@ -35,14 +34,11 @@ export default function Rate({
   return (
     <div className='rate'>
       <ChatOperator text={RATE_DATA.messOne} marginTop='25px' />
-      {rateStarsOpen && (
         <RateStars
           setIsThanksOpen={setIsThanksOpen}
           handleCloseChat={handleCloseChat}
           setInputEnabled={setInputEnabled}
-          setRateStarsOpen={setRateStarsOpen}
         />
-      )}
       <div ref={messagesEndRef}></div>
       <div className='rate__container'>
         {messages.map((message, index) => (

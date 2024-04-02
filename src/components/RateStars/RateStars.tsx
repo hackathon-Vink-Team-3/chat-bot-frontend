@@ -5,14 +5,12 @@ interface RateStarsProps {
   setIsThanksOpen: (isOpen: boolean) => void;
   handleCloseChat: (isOpen: boolean) => void;
   setInputEnabled: (isOpen: boolean) => void;
-  setRateStarsOpen: (isOpen: boolean) => void;
 }
 
 export default function RateStars({
   setIsThanksOpen,
   handleCloseChat,
   setInputEnabled,
-  setRateStarsOpen,
 }: RateStarsProps) {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
@@ -21,7 +19,6 @@ export default function RateStars({
     setTimeout(() => {
       setIsThanksOpen(true);
       setInputEnabled(false);
-      setRateStarsOpen(false)
     }, 4000);
     setTimeout(() => {
       handleCloseChat(true);

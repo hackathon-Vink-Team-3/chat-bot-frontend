@@ -79,8 +79,7 @@ export default function Modal({ handleCloseChat }: ModalProps) {
             setInputEnabled={setInputEnabled}
           />
         )}
-        {isThanksOpen && <Thanks
-         />}
+        {isThanksOpen && <Thanks />}
         {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && (
           <>
             {isChatOpen ? (

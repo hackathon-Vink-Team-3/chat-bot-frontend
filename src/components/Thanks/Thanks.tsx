@@ -7,12 +7,13 @@ import { useEffect, useRef, useState } from 'react';
 import ChatUser from '../ChatUser/ChatUser';
 
 // interface ThanksProps {
-//   setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
+//   chatOpen: any  
 // }
 
 export default function Thanks() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<string[]>([]);
+  
 
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
