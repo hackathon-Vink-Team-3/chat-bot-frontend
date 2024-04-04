@@ -13,6 +13,13 @@
   bottom: 29px;
 }
 
+/* @media screen and (max-width: 1100px) {
+  .modal {
+    right: 50%;
+    bottom: 50%;
+  }
+} */
+
 .modal__conteiner-main {
   padding: 0;
   background-color: #ffffff;

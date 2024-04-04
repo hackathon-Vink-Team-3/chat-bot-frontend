@@ -27,14 +27,6 @@ export default function App() {
     }
   };
 
-  const postDialog = (chat_uuid: string) => {
-    Api.postDialog(chat_uuid)
-      .then((data) => {
-        console.log('Dialog posted successfully:', data);
-      })
-      .catch((error) => console.error('Error posting dialog:', error));
-  };
-
   useEffect(() => {
     postChat();
     if (chat) {
@@ -49,6 +41,14 @@ export default function App() {
       postDialog(chat);
     }
   }, [chat]);
+
+  const postDialog = (chat_uuid: string) => {
+    Api.postDialog(chat_uuid)
+      .then((data) => {
+        console.log('Dialog posted successfully:', data);
+      })
+      .catch((error) => console.error('Error posting dialog:', error));
+  };
 
   return (
     <div className='body'>
