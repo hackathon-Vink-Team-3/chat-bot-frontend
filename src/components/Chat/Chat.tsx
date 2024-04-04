@@ -4,12 +4,12 @@ import Input from '../Input/Input';
 import ChatOperator from '../ChatOperator/ChatOperator';
 import { messageOperatorData } from '../../utils/constants';
 import ChatUser from '../ChatUser/ChatUser';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
   setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsRateOpen: (isOpen: boolean) => void;
 }
 
 export default function Chat({
@@ -18,10 +18,22 @@ export default function Chat({
   setIsRateOpen,
 }: ChatProps) {
   const [messages, setMessages] = useState<string[]>([]);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
   };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (messages.some((message) => message.toLowerCase().includes('спасибо'))) {
+      setTimeout(() => {
+        setIsRateOpen(true);
+      }, 900);
+    }
+  }, [messages]);
 
   const handleBack = () => {
     setIsChatOpen(false);
@@ -36,12 +48,9 @@ export default function Chat({
         {messages.map((message, index) => (
           <ChatUser key={index} text={message} />
         ))}
+        <div ref={messagesEndRef}></div>
       </div>
-      <Input
-        setInactiveTime={setInactiveTime}
-        addMessage={addMessage}
-        setIsRateOpen={setIsRateOpen}
-      />
+      <Input setInactiveTime={setInactiveTime} addMessage={addMessage} />
     </div>
   );
 }

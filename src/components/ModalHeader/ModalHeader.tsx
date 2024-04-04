@@ -1,5 +1,5 @@
 import './ModalHeader.css';
-import { modalData } from '../../utils/constants';
+import { MODAL_DATA } from '../../utils/constants';
 import Online from './../../assets/Online.svg?react';
 import Avatar from './../../assets/Avatar.jpg';
 import ButtonClose from '../ButtonClose/ButtonClose';
@@ -21,9 +21,9 @@ export default function ModalHeader({ handleCloseChat }: ModalHeaderProps) {
           />
           <div className='modal-header__container-online'>
             <Online className='modal-header__circle' />
-            <p className='modal-header__name'>{modalData.name}</p>
+            <p className='modal-header__name'>{MODAL_DATA.name}</p>
           </div>
-          <p className='modal-header__sub-name'>{modalData.subName}</p>
+          <p className='modal-header__sub-name'>{MODAL_DATA.subName}</p>
         </div>
       </div>
     </div>

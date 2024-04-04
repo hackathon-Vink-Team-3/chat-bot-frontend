@@ -19,6 +19,8 @@
   border-radius: 12px;
   max-width: 353px;
   background-color: #1565ff;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .chat-user__avatar {

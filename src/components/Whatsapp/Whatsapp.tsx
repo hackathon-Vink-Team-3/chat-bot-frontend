@@ -1,5 +1,5 @@
 import './Whatsapp.css';
-import { whatsappData } from '../../utils/constants';
+import { WHATSAPP_DATA } from '../../utils/constants';
 import TelegramIcon from './../../assets/WhatsAppSoon.svg?react';
 import Back from './../../assets/Back.svg?react';
 
@@ -17,7 +17,7 @@ export default function Whatsapp({ setIsWhatsappOpen }: TelegramProps) {
     <div className='whatsapp'>
       <Back className='whatsapp__back' onClick={handleBack} />
       <TelegramIcon />
-      <p className='whatsapp__text'>{whatsappData.text}</p>
+      <p className='whatsapp__text'>{WHATSAPP_DATA.text}</p>
     </div>
   );
 }

@@ -3,20 +3,19 @@ import { useState } from 'react';
 
 interface RateStarsProps {
   setIsThanksOpen: (isOpen: boolean) => void;
-  handleCloseChat: (isOpen: boolean) => void;
+  setInputEnabled: (isOpen: boolean) => void;
 }
 
-export default function RateStars({ setIsThanksOpen, handleCloseChat }: RateStarsProps) {
+export default function RateStars({
+  setIsThanksOpen,
+  setInputEnabled,
+}: RateStarsProps) {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
   const handleRate = (index: number) => {
     setCurrentStep(index + 1);
-    setTimeout(() => {
-      setIsThanksOpen(true);
-    }, 4000);
-    setTimeout(() => {
-      handleCloseChat(true);
-    }, 9000);
+    setIsThanksOpen(true);
+    setInputEnabled(false);
   };
 
   const handleMouseOver = (index: number) => {

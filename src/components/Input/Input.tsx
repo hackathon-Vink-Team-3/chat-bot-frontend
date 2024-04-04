@@ -5,13 +5,17 @@ import { useState } from 'react';
 interface InputProps {
   setInactiveTime?: React.Dispatch<React.SetStateAction<number>>;
   addMessage: (message: string) => void;
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsChatOpen?: (isOpen: boolean) => void;
+  setIsRateOpen?: (isOpen: boolean) => void;
+  setIsThanksOpen?: (isOpen: boolean) => void;
 }
 
 export default function Input({
   setInactiveTime,
-  setIsRateOpen,
   addMessage,
+  setIsChatOpen,
+  setIsRateOpen,
+  setIsThanksOpen,
 }: InputProps) {
   const [inputValue, setInputValue] = useState('');
 
@@ -20,15 +24,21 @@ export default function Input({
     if (setInactiveTime) {
       setInactiveTime(0);
     }
-    if (event.target.value.toLowerCase().includes('спасибо')) {
-      setIsRateOpen(true);
-    }
   };
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       addMessage(inputValue);
       setInputValue('');
+      setIsChatOpen && setIsChatOpen(true);
+      setIsRateOpen && setIsRateOpen(false);
+      setIsThanksOpen && setIsThanksOpen(false);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSendMessage();
     }
   };
 
@@ -40,6 +50,7 @@ export default function Input({
         placeholder='Введите сообщение...'
         value={inputValue}
         onChange={handleInput}
+        onKeyDown={handleKeyDown}
       />
       <Send className='input__img' onClick={handleSendMessage} />
     </div>
