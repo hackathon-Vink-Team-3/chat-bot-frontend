@@ -1,38 +1,53 @@
 import './Rate.css';
 import Input from '../Input/Input';
 import ChatOperator from '../ChatOperator/ChatOperator';
-import { rateData } from '../../utils/constants';
+import { RATE_DATA } from '../../utils/constants';
 import RateStars from '../RateStars/RateStars';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ChatUser from '../ChatUser/ChatUser';
 
 interface RateProps {
   setIsThanksOpen: (isOpen: boolean) => void;
-  handleCloseChat: (isOpen: boolean) => void;
-  setIsRateOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setInputEnabled: (isOpen: boolean) => void;
+  inputEnabled: boolean;
+  setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function Rate({
   setIsThanksOpen,
-  handleCloseChat,
-  setIsRateOpen,
+  setInputEnabled,
+  setInactiveTime,
+  inputEnabled,
 }: RateProps) {
   const [messages, setMessages] = useState<string[]>([]);
-
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const addMessage = (newMessage: string) => {
     setMessages([...messages, newMessage]);
   };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
   return (
     <div className='rate'>
-      <ChatOperator text={rateData.messOne} />
+      <ChatOperator text={RATE_DATA.messOne} marginTop='25px' />
       <RateStars
         setIsThanksOpen={setIsThanksOpen}
-        handleCloseChat={handleCloseChat}
+        setInputEnabled={setInputEnabled}
       />
-      {messages.map((message, index) => (
-        <ChatUser key={index} text={message} />
-      ))}
-      <Input addMessage={addMessage} setIsRateOpen={setIsRateOpen}/>
+      <div ref={messagesEndRef}></div>
+      <div className='rate__container'>
+        {messages.map((message, index) => (
+          <ChatUser key={index} text={message} />
+        ))}
+        <div ref={messagesEndRef}></div>
+      </div>
+      {inputEnabled && (
+        <Input addMessage={addMessage} setInactiveTime={setInactiveTime} />
+      )}{' '}
     </div>
   );
 }

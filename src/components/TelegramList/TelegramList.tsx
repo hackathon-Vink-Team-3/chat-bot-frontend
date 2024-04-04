@@ -5,7 +5,5 @@ interface TelegramListProps {
 }
 
 export default function TelegramList({ field }: TelegramListProps) {
-  return (
-      <li className='telegram-list__text'>{field}</li>
-  );
+  return <li className='telegram-list__text'>{field}</li>;
 }

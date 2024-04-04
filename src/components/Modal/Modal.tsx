@@ -21,17 +21,20 @@ export default function Modal({ handleCloseChat }: ModalProps) {
   const [isRateOpen, setIsRateOpen] = useState(false);
   const [inactiveTime, setInactiveTime] = useState(0);
   const [isThanksOpen, setIsThanksOpen] = useState<boolean>(false);
+  const [inputEnabled, setInputEnabled] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setInactiveTime((prevTime) => prevTime + 1);
-    }, 600);
+    }, 60000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (inactiveTime >= 10) {
+    if (inactiveTime >= 4) {
       setIsRateOpen(true);
+      setIsTelegramOpen(false);
+      setIsWhatsappOpen(false);
     }
   }, [inactiveTime]);
 
@@ -73,11 +76,18 @@ export default function Modal({ handleCloseChat }: ModalProps) {
         {isRateOpen && (
           <Rate
             setIsThanksOpen={setIsThanksOpen}
-            handleCloseChat={handleCloseChat}
-            setIsRateOpen={setIsRateOpen}
+            inputEnabled={inputEnabled}
+            setInputEnabled={setInputEnabled}
+            setInactiveTime={setInactiveTime}
           />
         )}
-        {isThanksOpen && <Thanks />}
+        {isThanksOpen && (
+          <Thanks
+            setIsChatOpen={setIsChatOpen}
+            setIsRateOpen={setIsRateOpen}
+            setIsThanksOpen={setIsThanksOpen}
+          />
+        )}
         {!isTelegramOpen && !isWhatsappOpen && !isRateOpen && !isThanksOpen && (
           <>
             {isChatOpen ? (
