@@ -5,27 +5,9 @@ import { useEffect, useState } from 'react';
 
 export default function App() {
   const [chat, setChat] = useState('');
-    const [dialog, setDialog] = useState('');
+  const [dialog, setDialog] = useState('');
 
   console.log('dialog: ', dialog);
-
-  // const postChat = () => {
-  //   // Получаем данные чата из локального хранилища
-  //   const storedChat = localStorage.getItem('chat');
-  //   if (storedChat) {
-  //     setChat(storedChat);
-  //   } else {
-  //     // Если данных чата нет в локальном хранилище, делаем POST запрос на сервер
-  //     Api.postChat()
-  //       .then((data) => {
-  //         setChat(data.id);
-  //         console.log('dataGetChats: ', data.id);
-  //         // Сохраняем данные чата в локальное хранилище
-  //         localStorage.setItem('chat', data.id);
-  //       })
-  //       .catch(error => console.error('Error:', error));
-  //   }
-  // }
 
   const postChat = () => {
     // Получаем данные чата из локального хранилища
@@ -41,12 +23,20 @@ export default function App() {
           // Сохраняем данные чата в локальное хранилище
           localStorage.setItem('chat', data.id);
         })
-        .catch(error => console.error('Error:', error));
+        .catch((error) => console.error('Error:', error));
     }
-  }
+  };
+
+  const postDialog = (chat_uuid: string) => {
+    Api.postDialog(chat_uuid)
+      .then((data) => {
+        console.log('Dialog posted successfully:', data);
+      })
+      .catch((error) => console.error('Error posting dialog:', error));
+  };
 
   useEffect(() => {
-    postChat(); // Вызываем функцию postChat для получения данных чата
+    postChat();
     if (chat) {
       Api.getDialog(chat)
         .then((data) => {
@@ -56,6 +46,7 @@ export default function App() {
         .catch((error) => {
           console.error(error);
         });
+      postDialog(chat);
     }
   }, [chat]);
 
@@ -65,8 +56,6 @@ export default function App() {
     </div>
   );
 }
-
-
 
 // useEffect(() => {
 //   Api.postChat()
@@ -100,7 +89,6 @@ export default function App() {
 //   );
 // }
 
-
 //   useEffect(() => {
 //     Api.getChats()
 //       .then((data) => {
@@ -126,8 +114,6 @@ export default function App() {
 //     </div>
 //   );
 // }
-
-
 
 // useEffect(() => {
 //   Api.getChats()
