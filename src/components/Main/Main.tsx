@@ -3,12 +3,12 @@ import { useState } from 'react';
 import Layout from './Layout/Layout';
 import Modal from '../Modal/Modal';
 
-// interface MainApp {
-//   postChat: () => void;
-// }
+interface MainApp {
+  sendMessage: () => void;
+}
 
 export default function Main(
-  // { postChat }: MainApp
+  { sendMessage }: MainApp
   ) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const handleOpenChat = () => {
@@ -33,7 +33,7 @@ export default function Main(
   return (
     <div className='main'>
       <Layout handleOpenChat={handleOpenChat} />
-      {isPopupOpen && <Modal handleCloseChat={handleCloseChat} />}
+      {isPopupOpen && <Modal handleCloseChat={handleCloseChat} sendMessage={sendMessage}/>}
     </div>
   );
 }

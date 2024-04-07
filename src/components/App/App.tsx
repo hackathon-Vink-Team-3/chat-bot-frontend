@@ -4,136 +4,67 @@ import * as Api from './../../utils/utils';
 import { useEffect, useState } from 'react';
 
 export default function App() {
-  const [chat, setChat] = useState('');
-  const [dialog, setDialog] = useState('');
-
-  console.log('dialog: ', dialog);
-
-  const postChat = () => {
-    // Получаем данные чата из локального хранилища
-    const storedChat = localStorage.getItem('chat');
-    if (storedChat) {
-      setChat(storedChat);
-    } else {
-      // Если данных чата нет в локальном хранилище, делаем POST запрос на сервер
-      Api.postChat()
-        .then((data) => {
-          setChat(data.id);
-          console.log('dataGetChats: ', data.id);
-          // Сохраняем данные чата в локальное хранилище
-          localStorage.setItem('chat', data.id);
-        })
-        .catch((error) => console.error('Error:', error));
-    }
-  };
+  const [chat, setChat] = useState<string>('');
+  const [socket, setSocket] = useState<WebSocket | null>(null);
 
   useEffect(() => {
-    postChat();
+    const postChatAndGetDialog = async () => {
+      try {
+        const storedChat = localStorage.getItem('chat') ?? '';
+        let newChatId = '';
+
+        if (storedChat) {
+          setChat(storedChat);
+          newChatId = storedChat;
+        } else {
+          const data = await Api.postChat();
+          newChatId = data.id;
+          localStorage.setItem('chat', newChatId);
+          setChat(newChatId);
+        }
+
+        await postDialog(newChatId);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    postChatAndGetDialog();
+  }, []);
+
+  useEffect(() => {
     if (chat) {
-      Api.getDialog(chat)
-        .then((data) => {
-          setDialog(data);
-          console.log('data: ', data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      postDialog(chat);
+      const newSocket = new WebSocket(`ws://127.0.0.1:8000/ws/chat/7df0fef0-13b1-4e7d-b23e-361079ddc89a/dialog/1/`);
+      setSocket(newSocket);
     }
   }, [chat]);
 
-  const postDialog = (chat_uuid: string) => {
-    Api.postDialog(chat_uuid)
-      .then((data) => {
-        console.log('Dialog posted successfully:', data);
-      })
-      .catch((error) => console.error('Error posting dialog:', error));
+  const postDialog = async (chat_uuid: string) => {
+    try {
+      const data = await Api.postDialog(chat_uuid);
+      console.log('Dialog posted successfully:', data);
+    } catch (error) {
+      console.error('Error posting dialog:', error);
+    }
+  };
+
+  const sendMessage = async() => {
+    try {
+      const messageText = 'Привет!'; // Замените на текст вашего сообщения
+      if (socket) {
+        socket.send(JSON.stringify({ text: messageText }));
+        console.log('Message sent successfully');
+      } else {
+        console.error('WebSocket connection not established');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
   };
 
   return (
     <div className='body'>
-      <Main />
+      <Main sendMessage={sendMessage}/>
     </div>
   );
 }
-
-// useEffect(() => {
-//   Api.postChat()
-//     .then((data) => {
-//       postChats(data);
-//       console.log('chat_id: ', data);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// }, []);
-
-//   useEffect(() => {
-//     Api.postChat().then((id) => {
-//       console.log('chat_uuid: ', id);
-//       Api.getChats(id)
-//         .then((data) => {
-//           postChats(data);
-//           console.log('dataMess: ', data);
-//         })
-//         .catch((error) => {
-//           console.error(error);
-//         });
-//     });
-//   }, []);
-
-//   return (
-//     <div className='body'>
-//       <Main />
-//     </div>
-//   );
-// }
-
-//   useEffect(() => {
-//     Api.getChats()
-//       .then((data) => {
-//         setChats(data);
-//         console.log('data: ', data);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   }, []);
-
-//   const postChat = () => {
-//     Api.postChat()
-//       .then(data => {
-//         console.log('data:', data);
-//       })
-//       .catch(error => console.error('Error:', error));
-//   };
-
-//   return (
-//     <div className='body'>
-//      <Main postChat={postChat}/>
-//     </div>
-//   );
-// }
-
-// useEffect(() => {
-//   Api.getChats()
-//     .then((data) => {
-//       setChats(data);
-//       console.log('dataGetChats: ', data);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// }, []);
-
-// useEffect(() => {
-//   Api.postChat()
-//     .then(chatId => {
-//       console.log('chatId:', chatId);
-//       return Api.getChats(chatId);
-//     })
-//     .then(info => {
-//       console.log('info:', info);
-//     })
-//     .catch(error => console.error('Error:', error));
-// },  []);

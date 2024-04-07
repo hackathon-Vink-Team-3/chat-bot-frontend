@@ -11,9 +11,10 @@ import { useEffect, useRef, useState } from 'react';
 
 interface ModalProps {
   handleCloseChat: () => void;
+  sendMessage:() => void;
 }
 
-export default function Modal({ handleCloseChat }: ModalProps) {
+export default function Modal({ handleCloseChat, sendMessage }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isTelegramOpen, setIsTelegramOpen] = useState<boolean>(false);
@@ -95,6 +96,7 @@ export default function Modal({ handleCloseChat }: ModalProps) {
                 setIsChatOpen={setIsChatOpen}
                 setInactiveTime={setInactiveTime}
                 setIsRateOpen={setIsRateOpen}
+                sendMessage={sendMessage}
               />
             ) : (
               <IconsContainer

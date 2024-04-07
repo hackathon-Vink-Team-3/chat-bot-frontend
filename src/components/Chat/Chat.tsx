@@ -10,12 +10,14 @@ interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
   setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
   setIsRateOpen: (isOpen: boolean) => void;
+  sendMessage: () => void;
 }
 
 export default function Chat({
   setIsChatOpen,
   setInactiveTime,
   setIsRateOpen,
+  sendMessage,
 }: ChatProps) {
   const [messages, setMessages] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -50,7 +52,7 @@ export default function Chat({
         ))}
         <div ref={messagesEndRef}></div>
       </div>
-      <Input setInactiveTime={setInactiveTime} addMessage={addMessage} />
+      <Input setInactiveTime={setInactiveTime} addMessage={addMessage} sendMessage={sendMessage}/>
     </div>
   );
 }
