@@ -22,13 +22,13 @@ export const postChat = () => {
 };
 
 export const getDialog = (chat_uuid: string) => {
-  return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog`, {
+  return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/`, {
     method: 'GET',
   }).then(getResponseData);
 };
 
 export const postDialog = (chat_uuid: string) => {
-  return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog`, {
+  return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/`, {
     method: 'POST',
   }).then(getResponseData);
 };
