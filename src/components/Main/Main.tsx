@@ -2,17 +2,16 @@ import './Main.css';
 import { useState } from 'react';
 import Layout from './Layout/Layout';
 import Modal from '../Modal/Modal';
+import { HistoryItem } from '../IconsContainer/IconsContainer';
 
 interface MainApp {
   sendMessage: () => void;
+  history: HistoryItem[];
 }
 
-export default function Main(
-  { sendMessage }: MainApp
-  ) {
+export default function Main({ sendMessage, history }: MainApp) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const handleOpenChat = () => {
-    // postChat();
     setIsPopupOpen(true);
   };
 
@@ -20,20 +19,16 @@ export default function Main(
     setIsPopupOpen(false);
   };
 
-  // const [openChats, setOpenChats] = useState(null);
-  // useEffect(() => {
-  //   openChats;
-  // }, []);
-  // console.log('openChats ', openChats);
-
-  // const postChat = () => {
-  //   Api.postChat();
-  // };
-
   return (
     <div className='main'>
       <Layout handleOpenChat={handleOpenChat} />
-      {isPopupOpen && <Modal handleCloseChat={handleCloseChat} sendMessage={sendMessage}/>}
+      {isPopupOpen && (
+        <Modal
+          handleCloseChat={handleCloseChat}
+          sendMessage={sendMessage}
+          history={history}
+        />
+      )}
     </div>
   );
 }

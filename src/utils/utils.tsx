@@ -13,24 +13,23 @@ export const postChat = () => {
   }).then(getResponseData);
 };
 
+export const getChat = (id: string) => {
+  return fetch(`${BASE_URL}/api/v1/chat/${id}/`, {
+    method: 'GET',
+  }).then(getResponseData);
+};
+
+// история серая
 export const getDialog = (chat_uuid: string) => {
   return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/`, {
     method: 'GET',
   }).then(getResponseData);
 };
 
+// создать диалог
 export const postDialog = (chat_uuid: string) => {
   return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/`, {
     method: 'POST',
   }).then(getResponseData);
 };
 
-export const postMessage = (chat_uuid: string, messageText: string) => {
-  return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/message/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ text: messageText }),
-  }).then(getResponseData);
-};

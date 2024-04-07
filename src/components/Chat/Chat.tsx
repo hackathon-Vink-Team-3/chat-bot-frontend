@@ -52,7 +52,11 @@ export default function Chat({
         ))}
         <div ref={messagesEndRef}></div>
       </div>
-      <Input setInactiveTime={setInactiveTime} addMessage={addMessage} sendMessage={sendMessage}/>
+      <Input
+        setInactiveTime={setInactiveTime}
+        addMessage={addMessage}
+        sendMessage={sendMessage}
+      />
     </div>
   );
 }

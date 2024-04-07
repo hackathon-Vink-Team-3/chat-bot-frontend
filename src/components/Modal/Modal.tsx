@@ -8,13 +8,19 @@ import Telegram from '../Telegram/Telegram';
 import Rate from '../Rate/Rate';
 import Thanks from '../Thanks/Thanks';
 import { useEffect, useRef, useState } from 'react';
+import { HistoryItem } from './../IconsContainer/IconsContainer'
 
 interface ModalProps {
   handleCloseChat: () => void;
-  sendMessage:() => void;
+  sendMessage: () => void;
+  history: HistoryItem[];
 }
 
-export default function Modal({ handleCloseChat, sendMessage }: ModalProps) {
+export default function Modal({
+  handleCloseChat,
+  sendMessage,
+  history,
+}: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isTelegramOpen, setIsTelegramOpen] = useState<boolean>(false);
@@ -104,6 +110,7 @@ export default function Modal({ handleCloseChat, sendMessage }: ModalProps) {
                 handleOpenTelegram={handleOpenTelegram}
                 handleOpenWhatsapp={handleOpenWhatsapp}
                 handleOpenNewChat={handleOpenNewChat}
+                history={history}
               />
             )}
           </>
