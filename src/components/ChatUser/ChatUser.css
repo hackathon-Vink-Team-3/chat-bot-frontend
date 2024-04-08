@@ -1,0 +1,39 @@
+.chat-user {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: end;
+}
+
+.chat-user__container-user {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: end;
+}
+
+.chat-user__container-messedge {
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  border-radius: 12px;
+  max-width: 353px;
+  background-color: #1565ff;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.chat-user__avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8.33px;
+}
+
+.chat-user__messedge {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0;
+}

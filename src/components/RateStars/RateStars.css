@@ -1,0 +1,35 @@
+.rate-stars {
+  display: flex;
+  gap: 9px;
+  margin: 30px auto 50px;
+}
+
+.statusBar__item {
+  width: 33px;
+  height: 27px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+  border: 1px solid #8a8a8a;
+  border-radius: 10px;
+  color: #8a8a8a;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.currentStep_type_active {
+  background-color: #f8d845;
+}
+
+.statusBar__item:hover {
+  background-color: #f8d845;
+}
+
+.statusBar__mark {
+  background-color: #f8d845;
+}
