@@ -3,15 +3,14 @@ import './App.css';
 import * as Api from './../../utils/utils';
 import { useEffect, useState } from 'react';
 import { HistoryItem } from '../IconsContainer/IconsContainer';
-import { Message } from './../Chat/Chat'
+import { Message } from './../Chat/Chat';
 
 export default function App() {
   const [history, getHistory] = useState<HistoryItem[]>([]);
   const [historyMess, getHistoryMess] = useState<Message[]>([]);
-  console.log('historyMess: ', historyMess);
   const [messId, getMessId] = useState<string>('');
   const [chat, setChat] = useState<string>('');
-  // const [socket, setSocket] = useState<WebSocket | null>(null);
+  const [socket, setSocket] = useState<WebSocket | null>(null);
 
   function openChat() {
     const chatId = localStorage.getItem('chatId');
@@ -32,7 +31,8 @@ export default function App() {
           localStorage.setItem('chatId', data.id);
           Api.getChat(data.id)
             .then((data) => {
-              console.log('getChat data: ', data);
+              getHistory(data.dialogs);
+              getMessId(data.dialogs[0].id);
             })
             .catch((error) => {
               console.error(error);
@@ -83,14 +83,42 @@ export default function App() {
     }
   }, [chat]);
 
-  // useEffect(() => {
-  //   if (chat) {
-  //     const newSocket = new WebSocket(
-  //       `ws://127.0.0.1:8000/ws/chat/6f95b2ac-d228-45f4-802f-066cb4ad25d5/dialog/3/`
-  //     );
-  //     setSocket(newSocket);
-  //   }
-  // }, [chat]);
+  function sendMessage(message: string) {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+      const messageObj: Message = {
+        text: message,
+        sender_type: 'user',
+      };
+      console.log('messageObj: ', messageObj);
+      socket.send(JSON.stringify(messageObj));
+      getHistoryMess((prevMessages) => [...prevMessages, messageObj]);
+    } else {
+      console.error('WebSocket connection is not open');
+    }
+  }
+
+  useEffect(() => {
+    if (chat) {
+      const newSocket = new WebSocket(
+        `ws://127.0.0.1:8000/ws/chat/${chat}/dialog/3/`
+      );
+      setSocket(newSocket);
+    }
+  }, [chat]);
+
+  useEffect(() => {
+    if (socket) {
+      socket.onmessage = (event) => {
+        const messageData = JSON.parse(event.data);
+        getHistoryMess((prevMessages) => [...prevMessages, messageData]);
+      };
+    }
+    return () => {
+      if (socket) {
+        socket.close();
+      }
+    };
+  }, [socket]);
 
   return (
     <div className='body'>
@@ -99,6 +127,7 @@ export default function App() {
         history={history}
         getChat={getChat}
         historyMess={historyMess}
+        sendMessage={sendMessage}
       />
     </div>
   );

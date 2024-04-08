@@ -14,6 +14,7 @@ import { Message } from './../Chat/Chat'
 interface ModalProps {
   handleCloseChat: () => void;
   getChat: () => void;
+  sendMessage: (message: string) => void;
   history: HistoryItem[];
   historyMess: Message[]
 }
@@ -23,6 +24,7 @@ export default function Modal({
   historyMess,
   history,
   getChat,
+  sendMessage,
 }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -106,6 +108,7 @@ export default function Modal({
                 setIsChatOpen={setIsChatOpen}
                 setInactiveTime={setInactiveTime}
                 setIsRateOpen={setIsRateOpen}
+                sendMessage={sendMessage}
                 historyMess={historyMess}
               />
             ) : (
