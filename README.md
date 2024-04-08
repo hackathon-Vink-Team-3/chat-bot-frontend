@@ -18,6 +18,7 @@
 2. Козлов Иван - Профиль на GitHub [https://github.com/Karez79](https://github.com/Karez79)
 
 ## ссылка на сайт
+
 [https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space)
 
 ## Инструкции по установке и запуску
@@ -44,11 +45,6 @@
 8. Установка зависимости: `npm install`
 9. Запуск проект: `npm run dev`
 10. В браузере открываем `http://localhost:5173/`
-
-## Библиотеки,которые использовались
-
-1. @hookform/resolvers
-2. yup
 
 ## Ключевые точки для медиа min,max-width: 1440px
 <!-- ![alt text](./src/assets/image.png)
