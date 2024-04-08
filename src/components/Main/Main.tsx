@@ -8,7 +8,6 @@ import { Message } from './../Chat/Chat';
 interface MainApp {
   openChat: () => void;
   getChat: () => void;
-  sendMessage: () => void;
   history: HistoryItem[];
   historyMess: Message[];
 }
@@ -18,7 +17,6 @@ export default function Main({
   history,
   getChat,
   historyMess,
-  sendMessage,
 }: MainApp) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const handleOpenChat = () => {
@@ -36,7 +34,6 @@ export default function Main({
       {isPopupOpen && (
         <Modal
           handleCloseChat={handleCloseChat}
-          sendMessage={sendMessage}
           historyMess={historyMess}
           history={history}
           getChat={getChat}

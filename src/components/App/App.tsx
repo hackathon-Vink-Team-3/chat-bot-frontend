@@ -11,7 +11,7 @@ export default function App() {
   console.log('historyMess: ', historyMess);
   const [messId, getMessId] = useState<string>('');
   const [chat, setChat] = useState<string>('');
-  const [socket, setSocket] = useState<WebSocket | null>(null);
+  // const [socket, setSocket] = useState<WebSocket | null>(null);
 
   function openChat() {
     const chatId = localStorage.getItem('chatId');
@@ -83,14 +83,14 @@ export default function App() {
     }
   }, [chat]);
 
-  useEffect(() => {
-    if (chat) {
-      const newSocket = new WebSocket(
-        `ws://127.0.0.1:8000/ws/chat/6f95b2ac-d228-45f4-802f-066cb4ad25d5/dialog/3/`
-      );
-      setSocket(newSocket);
-    }
-  }, [chat]);
+  // useEffect(() => {
+  //   if (chat) {
+  //     const newSocket = new WebSocket(
+  //       `ws://127.0.0.1:8000/ws/chat/6f95b2ac-d228-45f4-802f-066cb4ad25d5/dialog/3/`
+  //     );
+  //     setSocket(newSocket);
+  //   }
+  // }, [chat]);
 
   return (
     <div className='body'>
@@ -99,7 +99,6 @@ export default function App() {
         history={history}
         getChat={getChat}
         historyMess={historyMess}
-        sendMessage={sendMessage}
       />
     </div>
   );

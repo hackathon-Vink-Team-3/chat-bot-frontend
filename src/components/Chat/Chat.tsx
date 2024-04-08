@@ -9,7 +9,6 @@ interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
   setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
   setIsRateOpen: (isOpen: boolean) => void;
-  sendMessage: () => void;
   historyMess: Message[];
 }
 
@@ -22,7 +21,6 @@ export default function Chat({
   setIsChatOpen,
   setInactiveTime,
   setIsRateOpen,
-  sendMessage,
   historyMess,
 }: ChatProps) {
   const [messages, setMessages] = useState<string[]>([]);
@@ -64,7 +62,6 @@ export default function Chat({
       <Input
         setInactiveTime={setInactiveTime}
         addMessage={addMessage}
-        sendMessage={sendMessage}
       />
     </div>
   );

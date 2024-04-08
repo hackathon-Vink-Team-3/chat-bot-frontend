@@ -13,7 +13,6 @@ import { Message } from './../Chat/Chat'
 
 interface ModalProps {
   handleCloseChat: () => void;
-  sendMessage: () => void;
   getChat: () => void;
   history: HistoryItem[];
   historyMess: Message[]
@@ -21,7 +20,6 @@ interface ModalProps {
 
 export default function Modal({
   handleCloseChat,
-  sendMessage,
   historyMess,
   history,
   getChat,
@@ -108,7 +106,6 @@ export default function Modal({
                 setIsChatOpen={setIsChatOpen}
                 setInactiveTime={setInactiveTime}
                 setIsRateOpen={setIsRateOpen}
-                sendMessage={sendMessage}
                 historyMess={historyMess}
               />
             ) : (
