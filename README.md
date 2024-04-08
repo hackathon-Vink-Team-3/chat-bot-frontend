@@ -2,21 +2,29 @@
 
 ## Описание проекта
 
-
+Проект по разработке и внедрению чат-бота с технологией GPT на сайт компании Винк для предоставления консультаций по материалам и оборудованию, а также оказания помощи клиентам 24/7.
 
 ## Используемые технологии
 
-- TS [TypeScript](https://www.typescriptlang.org/)
-- ⚛️[React](https://ru.reactjs.org/)
+- * [TypeScript](https://www.typescriptlang.org/)
+- * [React](https://ru.reactjs.org/)
+- * [Css](https://www.w3.org)
+- * [Socket.io](https://socket.io/)
+
 
 ## Сведения о команде:
 
 1. Сидорчук Николай - Профиль на GitHub [https://github.com/k0t1k777](https://github.com/k0t1k777) 
+2. Козлов Иван - Профиль на GitHub [https://github.com/Karez79](https://github.com/Karez79)
 
-## ссылка на Github Pages
-<!-- [Ссылка: https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space) -->
+## ссылка на сайт
+[https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space)
 
 ## Инструкции по установке и запуску
+
+1. Скачайте [архив](ссылка на архив) и откройте index.html.
+
+Или
 
 1. Клонируйте репозиторий: `git clone git@github.com:hackathon-Vink-Team-3/chat-bot-frontend.git`
 2. Перейдите в директорию проекта: `cd chat-bot-frontend`
@@ -37,7 +45,7 @@
 9. Запуск проект: `npm run dev`
 10. В браузере открываем `http://localhost:5173/`
 
-## Библиотеки,которые использовалис
+## Библиотеки,которые использовались
 
 1. @hookform/resolvers
 2. yup
@@ -50,3 +58,5 @@
 ![alt text](./src/assets/image-4.png)
 ![alt text](./src/assets/image-5.png)
 ![alt text](./src/assets/image-6.png) -->
+
+[Сылка на макет](https://www.figma.com/file/77nFBA1Pwa1z36AfKEBdMC/%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD-%D0%92%D0%B8%D0%BD%D0%BA?type=design&node-id=0-1&mode=design&t=Kt8acsqnrpes1AxL-0)
