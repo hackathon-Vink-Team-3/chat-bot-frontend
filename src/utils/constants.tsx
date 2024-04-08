@@ -12,6 +12,9 @@ export const CHAT_DATA = {
   textOne: 'Мы с вами еще не общались',
   textTwo: 'Здесь будет история ваших сообщений',
   history: 'История',
+  mess: 'Здесь будет Ваша история',
+  name: 'Вы',
+  date: '07.04.2024'
 };
 
 export const ICONS_DATA = [
@@ -55,7 +58,7 @@ export const THANKS_DATA = {
   thanks: 'Благодарим за обратную связь!',
 };
 
-export const iconsContainerData = [
+export const ICON_CONTAINER_DATA = [
   {
     name: 'Вы',
   },

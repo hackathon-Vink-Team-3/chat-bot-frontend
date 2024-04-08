@@ -89,7 +89,6 @@ export default function App() {
         text: message,
         sender_type: 'user',
       };
-      console.log('messageObj: ', messageObj);
       socket.send(JSON.stringify(messageObj));
     } else {
       console.error('WebSocket connection is not open');
@@ -99,7 +98,7 @@ export default function App() {
   useEffect(() => {
     if (chat) {
       const newSocket = new WebSocket(
-        `ws://127.0.0.1:8000/ws/chat/${chat}/dialog/3/`
+        `wss://vink-chat.ddns.net/ws/chat/${chat}/dialog/5/`
       );
       setSocket(newSocket);
     }

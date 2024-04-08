@@ -46,7 +46,7 @@ export default function Rate({
         <div ref={messagesEndRef}></div>
       </div>
       {inputEnabled && (
-        <Input addMessage={addMessage} setInactiveTime={setInactiveTime} />
+        <Input sendMessage={addMessage} setInactiveTime={setInactiveTime} />
       )}{' '}
     </div>
   );

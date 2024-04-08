@@ -2,7 +2,7 @@ import './IconsContainer.css';
 import {
   ICONS_DATA,
   CHAT_DATA,
-  iconsContainerData,
+  ICON_CONTAINER_DATA,
 } from '../../utils/constants';
 import Sms from './../../assets/sms.svg?react';
 import Mms from './../../assets/mms.svg?react';
@@ -14,7 +14,6 @@ interface IconsContainerProps {
   handleOpenChat: () => void;
   handleOpenTelegram: () => void;
   handleOpenWhatsapp: () => void;
-  handleOpenNewChat: () => void;
   history: HistoryItem[];
 }
 
@@ -26,7 +25,6 @@ export default function IconsContainer({
   handleOpenChat,
   handleOpenTelegram,
   handleOpenWhatsapp,
-  handleOpenNewChat,
   history,
 }: IconsContainerProps) {
   const [firstMessageTime, setFirstMessageTime] = useState<string>('');
@@ -37,7 +35,7 @@ export default function IconsContainer({
     const day = now.getDate().toString().padStart(2, '0');
     const year = now.getFullYear();
 
-    return `${month}.${day}.${year}`;
+    return `${day}.${month}.${year}`;
   }
 
   if (firstMessageTime === '' && history.length > 0) {
@@ -56,12 +54,12 @@ export default function IconsContainer({
               icon={item.icon}
               handleOpenTelegram={handleOpenTelegram}
               handleOpenWhatsapp={handleOpenWhatsapp}
-              handleOpenNewChat={handleOpenNewChat}
+              handleOpenChat={handleOpenChat}
             />
           );
         })}
       </div>
-      {iconsContainerData === null ? (
+      {ICON_CONTAINER_DATA === null ? (
         <div className='icons-container-whithout-text'>
           <div className='icons-container__container'>
             <div className='icons-container-icons'>
@@ -73,8 +71,7 @@ export default function IconsContainer({
         </div>
       ) : (
         <div className='icons-container__with-chats'>
-          <p className='icons-container__history'>{CHAT_DATA.history}</p>
-          {iconsContainerData.map((item, index) => (
+          {ICON_CONTAINER_DATA.map((item, index) => (
             <IconsContainerChat
               key={index}
               name={item.name}
@@ -83,6 +80,12 @@ export default function IconsContainer({
               handleOpenChat={handleOpenChat}
             />
           ))}
+          <p className='icons-container__history'>{CHAT_DATA.history}</p>
+          <IconsContainerChat
+            name={CHAT_DATA.name}
+            text={CHAT_DATA.mess}
+            time={CHAT_DATA.date}
+          />
         </div>
       )}
     </>

@@ -5,7 +5,7 @@ interface IconsContainerChatProps {
   name: string;
   text: string;
   time: string;
-  handleOpenChat: () => void;
+  handleOpenChat?: () => void;
 }
 
 export default function IconsContainerChat({

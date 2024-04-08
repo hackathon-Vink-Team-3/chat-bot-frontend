@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://127.0.0.1:8000';
+export const BASE_URL = 'https://vink-chat.ddns.net/';
 
 const getResponseData = (res: Response) => {
   if (!res.ok) {
@@ -25,14 +25,12 @@ export const getChat = (id: string) => {
   }).then(getResponseData);
 };
 
-// история серая
 export const getDialog = (chat_uuid: string) => {
   return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/`, {
     method: 'GET',
   }).then(getResponseData);
 };
 
-// создать диалог
 export const postDialog = (chat_uuid: string) => {
   return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/`, {
     method: 'POST',

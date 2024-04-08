@@ -7,7 +7,7 @@ interface InputProps {
   setIsChatOpen?: (isOpen: boolean) => void;
   setIsRateOpen?: (isOpen: boolean) => void;
   setIsThanksOpen?: (isOpen: boolean) => void;
-  sendMessage: (message: string) => void;
+  sendMessage?: (message: string) => void;
 }
 
 export default function Input({
@@ -15,7 +15,7 @@ export default function Input({
   setIsChatOpen,
   setIsRateOpen,
   setIsThanksOpen,
-  sendMessage
+  sendMessage,
 }: InputProps) {
   const [inputValue, setInputValue] = useState('');
 
@@ -28,8 +28,7 @@ export default function Input({
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
-      sendMessage(inputValue)
-      console.log('сообщение отправлено')
+      sendMessage && sendMessage(inputValue);
       setInputValue('');
       setIsChatOpen && setIsChatOpen(true);
       setIsRateOpen && setIsRateOpen(false);

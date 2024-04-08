@@ -38,7 +38,7 @@ export default function Modal({
   useEffect(() => {
     const interval = setInterval(() => {
       setInactiveTime((prevTime) => prevTime + 1);
-    }, 60000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -62,10 +62,6 @@ export default function Modal({
       });
     }
   }, []);
-
-  const handleOpenNewChat = () => {
-    setIsChatOpen(true);
-  };
 
   const handleOpenChat = () => {
     setIsChatOpen(true);
@@ -107,7 +103,6 @@ export default function Modal({
               <Chat
                 setIsChatOpen={setIsChatOpen}
                 setInactiveTime={setInactiveTime}
-                setIsRateOpen={setIsRateOpen}
                 sendMessage={sendMessage}
                 historyMess={historyMess}
               />
@@ -116,7 +111,6 @@ export default function Modal({
                 handleOpenChat={handleOpenChat}
                 handleOpenTelegram={handleOpenTelegram}
                 handleOpenWhatsapp={handleOpenWhatsapp}
-                handleOpenNewChat={handleOpenNewChat}
                 history={history}
               />
             )}

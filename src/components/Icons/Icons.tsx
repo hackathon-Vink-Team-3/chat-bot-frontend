@@ -5,7 +5,7 @@ interface IconsProps {
   icon: string;
   handleOpenTelegram: () => void;
   handleOpenWhatsapp: () => void;
-  handleOpenNewChat: () => void;
+  handleOpenChat: () => void;
 }
 
 export default function Icons({
@@ -13,7 +13,7 @@ export default function Icons({
   icon,
   handleOpenTelegram,
   handleOpenWhatsapp,
-  handleOpenNewChat,
+  handleOpenChat,
 }: IconsProps) {
   const handleClick = () => {
     if (title.includes('Telegram')) {
@@ -21,7 +21,7 @@ export default function Icons({
     } else if (title.includes('WhatsApp')) {
       handleOpenWhatsapp();
     } else if (title.includes('Написать')) {
-      handleOpenNewChat();
+      handleOpenChat();
     }
   };
 
