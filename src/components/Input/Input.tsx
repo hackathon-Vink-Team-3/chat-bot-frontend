@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 interface InputProps {
   setInactiveTime?: React.Dispatch<React.SetStateAction<number>>;
-  addMessage: (message: string) => void;
   setIsChatOpen?: (isOpen: boolean) => void;
   setIsRateOpen?: (isOpen: boolean) => void;
   setIsThanksOpen?: (isOpen: boolean) => void;
@@ -13,7 +12,6 @@ interface InputProps {
 
 export default function Input({
   setInactiveTime,
-  addMessage,
   setIsChatOpen,
   setIsRateOpen,
   setIsThanksOpen,
@@ -30,12 +28,11 @@ export default function Input({
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
-      addMessage(inputValue);
+      sendMessage(inputValue)
       setInputValue('');
       setIsChatOpen && setIsChatOpen(true);
       setIsRateOpen && setIsRateOpen(false);
       setIsThanksOpen && setIsThanksOpen(false);
-      sendMessage(inputValue)
     }
   };
 

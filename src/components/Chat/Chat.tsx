@@ -3,7 +3,7 @@ import Back from './../../assets/Back.svg?react';
 import Input from '../Input/Input';
 import ChatOperator from '../ChatOperator/ChatOperator';
 import ChatUser from '../ChatUser/ChatUser';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
@@ -25,47 +25,40 @@ export default function Chat({
   sendMessage,
   historyMess,
 }: ChatProps) {
-  const [messages, setMessages] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const addMessage = (newMessage: string) => {
-    setMessages((prevMessages) => [newMessage, ...prevMessages]);
-  };
- 
 
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-    if (messages.some((message) => message.toLowerCase().includes('спасибо'))) {
+    if (historyMess.some((message) => message.text.toLowerCase().includes('спасибо'))) {
       setTimeout(() => {
         setIsRateOpen(true);
       }, 900);
     }
-  }, [messages]);
+  }, [historyMess]);
 
   const handleBack = () => {
     setIsChatOpen(false);
   };
 
-  const reversedHistoryMess = [...historyMess].reverse();
+  // const reversedHistoryMess = [...historyMess];
 
   return (
     <div className='chat'>
       <Back className='chat__back' onClick={handleBack} />
       <div className='chat__container'>
-      {reversedHistoryMess.map((message: Message, index) => {
-        if (message.sender_type === 'bot') {
-          return <ChatOperator key={index} text={message.text} />;
-        } else if (message.sender_type === 'user') {
-          return <ChatUser key={index} text={message.text} />;
-        }
-      })}
+        {historyMess.map((message: Message, index) => {
+          if (message.sender_type === 'bot') {
+            return <ChatOperator key={index} text={message.text} />;
+          } else if (message.sender_type === 'user') {
+            return <ChatUser key={index} text={message.text} />;
+          }
+        })}
         <div ref={messagesEndRef}></div>
       </div>
       <Input
         setInactiveTime={setInactiveTime}
-        addMessage={addMessage}
         sendMessage={sendMessage}
       />
     </div>
