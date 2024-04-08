@@ -29,8 +29,9 @@ export default function Chat({
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const addMessage = (newMessage: string) => {
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
+    setMessages((prevMessages) => [newMessage, ...prevMessages]);
   };
+ 
 
   useEffect(() => {
     if (messagesEndRef.current) {

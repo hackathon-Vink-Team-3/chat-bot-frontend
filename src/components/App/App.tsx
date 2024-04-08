@@ -12,7 +12,6 @@ export default function App() {
   const [messId, getMessId] = useState<string>('');
   const [chat, setChat] = useState<string>('');
   const [socket, setSocket] = useState<WebSocket | null>(null);
-  console.log('socket: ', socket);
 
   function openChat() {
     const chatId = localStorage.getItem('chatId');
@@ -100,6 +99,7 @@ export default function App() {
         history={history}
         getChat={getChat}
         historyMess={historyMess}
+        sendMessage={sendMessage}
       />
     </div>
   );
