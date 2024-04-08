@@ -1,4 +1,4 @@
-# Frontend для HR Space приложения
+# Frontend для Чат бота приложения Vink
 
 ## Описание проекта
 
@@ -8,8 +8,8 @@
 
 - * [TypeScript](https://www.typescriptlang.org/)
 - * [React](https://ru.reactjs.org/)
-- * [Css](https://www.w3.org)
 - * [Socket.io](https://socket.io/)
+- * [CSS](https://www.w3.org)
 
 
 ## Сведения о команде:
@@ -19,7 +19,7 @@
 
 ## ссылка на сайт
 
-[https://k0t1k777.github.io/HR_Space](https://k0t1k777.github.io/HR_Space)
+[https://k0t1k777.github.io/chat-bot-frontend](https://k0t1k777.github.io/chat-bot-frontend)
 
 ## Инструкции по установке и запуску
 
