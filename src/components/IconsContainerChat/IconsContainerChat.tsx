@@ -16,14 +16,14 @@ export default function IconsContainerChat({
 }: IconsContainerChatProps) {
   return (
     <div className='icons-container-chat' onClick={handleOpenChat}>
-      <IconChat />
+      <div style={{ width: '38px', height: '37px' }}>
+        <IconChat />
+      </div>
       <div className='icons-container-chat__text'>
         <p className='icons-container-chat__name'>{name}</p>
         <p className='icons-container-chat__text'>{text}</p>
       </div>
-      <p className='icons-container-chat__text icons-container-chat__text_type_right'>
-        {time}
-      </p>
+      <p className='icons-container-chat__date'>{time}</p>
     </div>
   );
 }

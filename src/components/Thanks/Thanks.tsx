@@ -15,14 +15,11 @@ export default function Thanks({
   setIsRateOpen,
   setIsThanksOpen,
 }: ThanksProps) {
-
   return (
     <div className='thanks'>
       <ChatOperator text={THANKS_DATA.thanks} />
       <img src={Hand} className='thanks__img' alt='Спасибо' />
-      <div className='thanks__container'>
-        
-      </div>
+      <div className='thanks__container'></div>
       <Input
         setIsChatOpen={setIsChatOpen}
         setIsRateOpen={setIsRateOpen}
