@@ -45,13 +45,6 @@ export const WHATSAPP_DATA = {
   text: 'Comming soon...',
 };
 
-export const messageOperatorData = {
-  messOne: 'Здравствуйте! Какая толщина вас интересует?',
-  messTwo: `Да, такой есть в наличии. 
-  Лист акрил. EVOGLAS XT 2*2050*3050 мм GE 
-  прозрачный 92%. Цена 6 118,81 руб за 1 шт.`,
-};
-
 export const RATE_DATA = {
   messOne: `Оцените, пожалуйста, насколько вероятно, что вы 
   порекомендуете нашу компанию своим знакомым?`,

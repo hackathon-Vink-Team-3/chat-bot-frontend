@@ -9,17 +9,22 @@ import Rate from '../Rate/Rate';
 import Thanks from '../Thanks/Thanks';
 import { useEffect, useRef, useState } from 'react';
 import { HistoryItem } from './../IconsContainer/IconsContainer'
+import { Message } from './../Chat/Chat'
 
 interface ModalProps {
   handleCloseChat: () => void;
   sendMessage: () => void;
+  getChat: () => void;
   history: HistoryItem[];
+  historyMess: Message[]
 }
 
 export default function Modal({
   handleCloseChat,
   sendMessage,
+  historyMess,
   history,
+  getChat,
 }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -64,6 +69,7 @@ export default function Modal({
 
   const handleOpenChat = () => {
     setIsChatOpen(true);
+    getChat();
   };
 
   const handleOpenTelegram = () => {
@@ -103,6 +109,7 @@ export default function Modal({
                 setInactiveTime={setInactiveTime}
                 setIsRateOpen={setIsRateOpen}
                 sendMessage={sendMessage}
+                historyMess={historyMess}
               />
             ) : (
               <IconsContainer

@@ -7,6 +7,12 @@ const getResponseData = (res: Response) => {
   return res.json();
 };
 
+export const getHistoryDialog = (chat_uuid: string, id: string) => {
+  return fetch(`${BASE_URL}/api/v1/chat/${chat_uuid}/dialog/${id}`, {
+    method: 'GET',
+  }).then(getResponseData);
+};
+
 export const postChat = () => {
   return fetch(`${BASE_URL}/api/v1/chat/`, {
     method: 'POST',
@@ -32,4 +38,3 @@ export const postDialog = (chat_uuid: string) => {
     method: 'POST',
   }).then(getResponseData);
 };
-

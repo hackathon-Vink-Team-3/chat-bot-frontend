@@ -28,9 +28,6 @@ export default function IconsContainer({
   handleOpenNewChat,
   history,
 }: IconsContainerProps) {
-  // const historyObject = Object.values(history).flat();
-  console.log('historyObsdsadasdject: ', history);
-
   return (
     <>
       <div className='icons-container'>
@@ -60,22 +57,17 @@ export default function IconsContainer({
       ) : (
         <div className='icons-container__with-chats'>
           <p className='icons-container__history'>{CHAT_DATA.history}</p>
-          {iconsContainerData.map((item, index) => {
-            const date = new Date(item.time);
-            const formattedTime = `${date.getDate()}.${
-              date.getMonth() + 1
-            }.${date.getFullYear()}`;
+          {iconsContainerData.map((item, index) => (
+            <IconsContainerChat
+              key={index}
+              name={item.name}
+              text={history[0].first_message_text}
+              // time={item.time}
+              time={item.time}
 
-            return (
-              <IconsContainerChat
-                key={index}
-                name={item.name}
-                text={history[0].first_message_text}
-                time={formattedTime} // Используйте отформатированную дату
-                handleOpenChat={handleOpenChat}
-              />
-            );
-          })}
+              handleOpenChat={handleOpenChat}
+            />
+          ))}
         </div>
       )}
     </>

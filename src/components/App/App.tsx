@@ -3,24 +3,25 @@ import './App.css';
 import * as Api from './../../utils/utils';
 import { useEffect, useState } from 'react';
 import { HistoryItem } from '../IconsContainer/IconsContainer';
+import { Message } from './../Chat/Chat'
 
 export default function App() {
   const [history, getHistory] = useState<HistoryItem[]>([]);
-  console.log('history: ', history);
+  const [historyMess, getHistoryMess] = useState<Message[]>([]);
+  console.log('historyMess: ', historyMess);
+  const [messId, getMessId] = useState<string>('');
   const [chat, setChat] = useState<string>('');
   const [socket, setSocket] = useState<WebSocket | null>(null);
   console.log('socket: ', socket);
 
-  function sendMessage() {
+  function openChat() {
     const chatId = localStorage.getItem('chatId');
     if (chatId) {
       setChat(chatId);
-      console.log('chatId from localStorage: ', chatId);
-        Api.getChat(chatId)
+      Api.getChat(chatId)
         .then((data) => {
-          console.log('getChat with ID: ', data);
-          getHistory(data.dialogs); 
-          console.log('getHistorygetHistorygetHistorygetHistory: ', data);
+          getHistory(data.dialogs);
+          getMessId(data.dialogs[0].id);
         })
         .catch((error) => {
           console.error(error);
@@ -28,10 +29,9 @@ export default function App() {
     } else {
       Api.postChat()
         .then((data) => {
-          console.log('postChat: ', data);
           setChat(data.id);
           localStorage.setItem('chatId', data.id);
-            Api.getChat(data.id)
+          Api.getChat(data.id)
             .then((data) => {
               console.log('getChat data: ', data);
             })
@@ -45,8 +45,23 @@ export default function App() {
     }
   }
 
+  function getChat() {
+    const chatId = localStorage.getItem('chatId');
+    if (chatId !== null) {
+      Api.getHistoryDialog(chatId, messId)
+        .then((data) => {
+          getHistoryMess(data.messages);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      console.error('chatId is null');
+    }
+  }
+
   useEffect(() => {
-    sendMessage();
+    openChat();
   }, []);
 
   useEffect(() => {
@@ -69,7 +84,7 @@ export default function App() {
     }
   }, [chat]);
 
-    useEffect(() => {
+  useEffect(() => {
     if (chat) {
       const newSocket = new WebSocket(
         `ws://127.0.0.1:8000/ws/chat/6f95b2ac-d228-45f4-802f-066cb4ad25d5/dialog/3/`
@@ -80,7 +95,12 @@ export default function App() {
 
   return (
     <div className='body'>
-      <Main sendMessage={sendMessage} history={history} />
+      <Main
+        openChat={openChat}
+        history={history}
+        getChat={getChat}
+        historyMess={historyMess}
+      />
     </div>
   );
 }

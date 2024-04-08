@@ -3,21 +3,29 @@ import { useState } from 'react';
 import Layout from './Layout/Layout';
 import Modal from '../Modal/Modal';
 import { HistoryItem } from '../IconsContainer/IconsContainer';
+import { Message } from './../Chat/Chat'
 
 interface MainApp {
-  sendMessage: () => void;
+  openChat: () => void;
+  getChat: () => void;
   history: HistoryItem[];
+  historyMess: Message[];
 }
 
-export default function Main({ sendMessage, history }: MainApp) {
+export default function Main({ openChat, history, getChat, historyMess }: MainApp) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const handleOpenChat = () => {
     setIsPopupOpen(true);
+    openChat();
   };
 
   const handleCloseChat = () => {
     setIsPopupOpen(false);
   };
+
+  const sendMessage = () => {
+    console.log('отправка сообщения')
+  }
 
   return (
     <div className='main'>
@@ -26,7 +34,9 @@ export default function Main({ sendMessage, history }: MainApp) {
         <Modal
           handleCloseChat={handleCloseChat}
           sendMessage={sendMessage}
+          historyMess={historyMess}
           history={history}
+          getChat={getChat}
         />
       )}
     </div>
