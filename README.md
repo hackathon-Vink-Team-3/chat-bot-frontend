@@ -11,7 +11,6 @@
 - * [Socket.io](https://socket.io/)
 - * [CSS](https://www.w3.org)
 
-
 ## Сведения о команде:
 
 1. Сидорчук Николай - Профиль на GitHub [https://github.com/k0t1k777](https://github.com/k0t1k777) 
