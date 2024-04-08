@@ -57,9 +57,7 @@ export const THANKS_DATA = {
 
 export const iconsContainerData = [
   {
-    name: 'Винк',
-    text: 'Команда Винк: Рады был помочь!',
-    time: '11:30',
+    name: 'Вы',
   },
 ];
 

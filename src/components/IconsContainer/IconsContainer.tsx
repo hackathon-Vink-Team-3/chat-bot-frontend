@@ -8,6 +8,7 @@ import Sms from './../../assets/sms.svg?react';
 import Mms from './../../assets/mms.svg?react';
 import Icons from '../Icons/Icons';
 import IconsContainerChat from '../IconsContainerChat/IconsContainerChat';
+import { useState } from 'react';
 
 interface IconsContainerProps {
   handleOpenChat: () => void;
@@ -28,6 +29,22 @@ export default function IconsContainer({
   handleOpenNewChat,
   history,
 }: IconsContainerProps) {
+  const [firstMessageTime, setFirstMessageTime] = useState<string>('');
+
+  function getCurrentDateTime() {
+    const now = new Date();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    const year = now.getFullYear();
+
+    return `${month}.${day}.${year}`;
+  }
+
+  if (firstMessageTime === '' && history.length > 0) {
+    const firstMessageDateTime = getCurrentDateTime();
+    setFirstMessageTime(firstMessageDateTime);
+  }
+
   return (
     <>
       <div className='icons-container'>
@@ -62,9 +79,7 @@ export default function IconsContainer({
               key={index}
               name={item.name}
               text={history[0].first_message_text}
-              // time={item.time}
-              time={item.time}
-
+              time={firstMessageTime}
               handleOpenChat={handleOpenChat}
             />
           ))}

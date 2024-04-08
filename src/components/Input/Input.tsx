@@ -8,6 +8,7 @@ interface InputProps {
   setIsChatOpen?: (isOpen: boolean) => void;
   setIsRateOpen?: (isOpen: boolean) => void;
   setIsThanksOpen?: (isOpen: boolean) => void;
+  sendMessage: (message: string) => void;
 }
 
 export default function Input({
@@ -16,6 +17,7 @@ export default function Input({
   setIsChatOpen,
   setIsRateOpen,
   setIsThanksOpen,
+  sendMessage
 }: InputProps) {
   const [inputValue, setInputValue] = useState('');
 
@@ -33,6 +35,7 @@ export default function Input({
       setIsChatOpen && setIsChatOpen(true);
       setIsRateOpen && setIsRateOpen(false);
       setIsThanksOpen && setIsThanksOpen(false);
+      sendMessage(inputValue)
     }
   };
 

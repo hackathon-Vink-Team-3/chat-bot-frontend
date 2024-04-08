@@ -9,6 +9,7 @@ interface ChatProps {
   setIsChatOpen: (isOpen: boolean) => void;
   setInactiveTime: React.Dispatch<React.SetStateAction<number>>;
   setIsRateOpen: (isOpen: boolean) => void;
+  sendMessage: (message: string) => void;
   historyMess: Message[];
 }
 
@@ -21,6 +22,7 @@ export default function Chat({
   setIsChatOpen,
   setInactiveTime,
   setIsRateOpen,
+  sendMessage,
   historyMess,
 }: ChatProps) {
   const [messages, setMessages] = useState<string[]>([]);
@@ -46,11 +48,13 @@ export default function Chat({
     setIsChatOpen(false);
   };
 
+  const reversedHistoryMess = [...historyMess].reverse();
+
   return (
     <div className='chat'>
       <Back className='chat__back' onClick={handleBack} />
       <div className='chat__container'>
-      {historyMess.map((message: Message, index) => {
+      {reversedHistoryMess.map((message: Message, index) => {
         if (message.sender_type === 'bot') {
           return <ChatOperator key={index} text={message.text} />;
         } else if (message.sender_type === 'user') {
@@ -62,6 +66,7 @@ export default function Chat({
       <Input
         setInactiveTime={setInactiveTime}
         addMessage={addMessage}
+        sendMessage={sendMessage}
       />
     </div>
   );
