@@ -91,7 +91,6 @@ export default function App() {
       };
       console.log('messageObj: ', messageObj);
       socket.send(JSON.stringify(messageObj));
-      getHistoryMess((prevMessages) => [...prevMessages, messageObj]);
     } else {
       console.error('WebSocket connection is not open');
     }

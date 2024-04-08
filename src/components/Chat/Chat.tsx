@@ -42,13 +42,13 @@ export default function Chat({
     setIsChatOpen(false);
   };
 
-  // const reversedHistoryMess = [...historyMess];
+  const reversedHistoryMess = [...historyMess].reverse();
 
   return (
     <div className='chat'>
       <Back className='chat__back' onClick={handleBack} />
       <div className='chat__container'>
-        {historyMess.map((message: Message, index) => {
+        {reversedHistoryMess.map((message: Message, index) => {
           if (message.sender_type === 'bot') {
             return <ChatOperator key={index} text={message.text} />;
           } else if (message.sender_type === 'user') {

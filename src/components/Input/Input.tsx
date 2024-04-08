@@ -29,6 +29,7 @@ export default function Input({
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       sendMessage(inputValue)
+      console.log('сообщение отправлено')
       setInputValue('');
       setIsChatOpen && setIsChatOpen(true);
       setIsRateOpen && setIsRateOpen(false);
