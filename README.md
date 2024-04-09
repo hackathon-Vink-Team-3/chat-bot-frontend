@@ -39,14 +39,14 @@
 10. В браузере открываем http://localhost:5173/
 
 ## Ключевые точки для медиа min: 500px, max-width: 1440px
-(./src/assets/decstop.png)
-(./src/assets/decstop%202.png)
-(./src/assets/desctop%203.png)
-(./src/assets/decstop%204.png)
-(./src/assets/decstop%205.png)
-(./src/assets/decstop%206.png)
-(./src/assets/mobile%20.png)
-(./src/assets/mobile%201.png)
+![alt text](./src/assets/decstop.png)
+![alt text](./src/assets/decstop%202.png)
+![alt text](./src/assets/desctop%203.png)
+![alt text](./src/assets/decstop%204.png)
+![alt text](./src/assets/decstop%205.png)
+![alt text](./src/assets/decstop%206.png)
+![alt text](./src/assets/mobile%20.png)
+![alt text](./src/assets/mobile%201.png)
 
 
 [Сылка на макет](https://www.figma.com/file/77nFBA1Pwa1z36AfKEBdMC/%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD-%D0%92%D0%B8%D0%BD%D0%BA?type=design&node-id=0-1&mode=design&t=Kt8acsqnrpes1AxL-0)
