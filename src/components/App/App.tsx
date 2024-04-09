@@ -16,27 +16,19 @@ export default function App() {
     const chatId = localStorage.getItem('chatId');
     if (chatId) {
       setChat(chatId);
-      Api.getChat(chatId)
-        .then((data) => {
-          getHistory(data.dialogs);
-          getMessId(data.dialogs[0].id);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      Api.getChat(chatId).then((data) => {
+        getHistory(data.dialogs);
+        getMessId(data.dialogs[0]?.id);
+      });
     } else {
       Api.postChat()
         .then((data) => {
           setChat(data.id);
           localStorage.setItem('chatId', data.id);
-          Api.getChat(data.id)
-            .then((data) => {
-              getHistory(data.dialogs);
-              getMessId(data.dialogs[0].id);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
+          Api.getChat(data.id).then((data) => {
+            getHistory(data?.dialogs);
+            getMessId(data.dialogs[0]?.id);
+          });
         })
         .catch((error) => {
           console.error(error);
@@ -96,13 +88,13 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (chat) {
+    if (chat && messId) {
       const newSocket = new WebSocket(
-        `wss://vink-chat.ddns.net/ws/chat/${chat}/dialog/5/`
+        `wss://vink-chat.ddns.net/ws/chat/${chat}/dialog/${messId}/`
       );
       setSocket(newSocket);
     }
-  }, [chat]);
+  }, [chat, messId]);
 
   useEffect(() => {
     if (socket) {

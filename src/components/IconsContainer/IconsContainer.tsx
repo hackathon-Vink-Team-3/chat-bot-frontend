@@ -75,7 +75,7 @@ export default function IconsContainer({
             <IconsContainerChat
               key={index}
               name={item.name}
-              text={history[0].first_message_text}
+              text={history[0]?.first_message_text}
               time={firstMessageTime}
               handleOpenChat={handleOpenChat}
             />

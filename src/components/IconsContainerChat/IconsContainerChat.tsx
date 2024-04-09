@@ -3,7 +3,7 @@ import IconChat from './../../assets/IconChat.svg?react';
 
 interface IconsContainerChatProps {
   name: string;
-  text: string;
+  text?: string;
   time: string;
   handleOpenChat?: () => void;
 }
