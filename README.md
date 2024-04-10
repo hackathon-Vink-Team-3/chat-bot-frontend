@@ -23,7 +23,7 @@
 
 ## Ссылка на Github Pages:
 
-[Посмотреть сайт: https://hackathon-vink-team-3.github.io/chat-bot-frontend/](https://hackathon-vink-team-3.github.io/chat-bot-frontend/)
+Посмотреть сайт: [https://hackathon-vink-team-3.github.io/chat-bot-frontend/](https://hackathon-vink-team-3.github.io/chat-bot-frontend/)
 
 ## Инструкции по установке и запуску:
 
