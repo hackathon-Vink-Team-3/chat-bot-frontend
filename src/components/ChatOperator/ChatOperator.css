@@ -40,3 +40,9 @@
   margin: 0;
   color: #000000;
 }
+
+@media screen and (max-width: 530px) {
+  .chat-operator{
+    gap:0;
+  }
+  }

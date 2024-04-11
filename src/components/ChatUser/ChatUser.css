@@ -37,3 +37,9 @@
   line-height: 21px;
   margin: 0;
 }
+
+@media screen and (max-width: 530px) {
+  .chat-user{
+    gap:0;
+  }
+  }

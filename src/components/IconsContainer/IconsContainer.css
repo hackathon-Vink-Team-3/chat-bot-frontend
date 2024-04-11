@@ -70,3 +70,15 @@
   margin: 0;
   text-align: left;
 }
+
+@media screen and (max-width: 530px) {
+  .icons-container{
+   width:100%;
+  }
+  }
+
+  @media screen and (max-width: 530px) {
+    .icons-container__with-chats {
+     width:100%;
+    }
+    }

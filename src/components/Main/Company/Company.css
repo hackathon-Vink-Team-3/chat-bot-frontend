@@ -23,7 +23,7 @@
   }
   
   .company__subtitle {
-    top: calc(300px - 80px);
+    top: calc(300px - 140px);
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px);
@@ -31,16 +31,14 @@
 
   .company__img {
     position: absolute;
-    top: 150px;
+    top: 83px;
     left: 50%;
     transform: translateX(-50%);
   }
 }
 
-@media screen and (max-width: 940px) {
-  .company__img {
-    top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
+@media screen and (max-width: 530px) {
+  .company__subtitle{
+    display: none;
   }
-}
+  }
